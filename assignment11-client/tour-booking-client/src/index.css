@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+@plugin "daisyui";
+
+ @plugin "daisyui" {
+   themes: sunset --default, dark --prefersdark,fantasy,sunset;
+ }
+
+body {
+  font-family: "Merriweather", serif;
+  font-optical-sizing: auto;
+  
+}
+
+
+.roboto{
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  
+}

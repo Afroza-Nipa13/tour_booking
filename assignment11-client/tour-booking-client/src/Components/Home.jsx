@@ -34,7 +34,7 @@ return (
                 <title>Zahaba| Home</title>
             </Helmet>
           <Banner></Banner>
-          <div className='max-w-7xl mx-auto my-10'>
+          <div className='max-w-11/12 mx-auto my-10'>
             <Suspense fallback={<Loader></Loader>}>
             <AllPackage allPackages={allpackages}></AllPackage>
           </Suspense>

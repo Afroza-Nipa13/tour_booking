@@ -7,7 +7,8 @@ import { Helmet } from 'react-helmet-async';
 
 const TourBooking = () => {
     const { id: packageId } = useParams()
-    const { _id, tour_name, price } = useLoaderData()
+    const data = useLoaderData()
+    console.log(data)
     const { user } = useAuth();
     
     const [bookingDate, setBookingDate] = useState("")
@@ -24,7 +25,7 @@ const TourBooking = () => {
             tourist_name: user.displayName,
             tourist_email: user.email,
             booking_date: bookingDate,
-            price,
+            price:data.price,
             note: form.note.value
         }
         // console.log(tourist)
@@ -32,7 +33,7 @@ const TourBooking = () => {
 
 
         // save to the database
-        axios.post('https://tour-booking-server-five.vercel.app/bookings', tourist).then(res => {
+        axios.post('http://localhost:3000/bookings', tourist).then(res => {
             if (res.data.insertedId) {
                 Swal.fire({
                     position: "top-end",
@@ -61,19 +62,24 @@ const TourBooking = () => {
             <Helmet>
                 <title>Zahaba| Bookings</title>
             </Helmet>
-            <h1>My Booked tour Packages : {packageId}</h1>
-            <div className='mx-auto md:w-7xl'>
+            
+            <div className='mx-auto w-full lg:flex justify-center gap-5 px-4'>
+                <figure className='h-[90vh] pt-5'>
+                    <img 
+                    className='w-full h-full rounded-2xl'
+                    src="https://img.freepik.com/free-photo/christmas-travel-concept-with-laptop_23-2149573080.jpg" alt="" />
+                </figure>
                 <form
                     onSubmit={handleBooking}
-                    className='mx-auto items-center text-center'>
-                    <fieldset className="fieldset mx-auto md:w-xl bg-base-200 border-base-300 rounded-box border p-4">
+                    className='mx-auto lg:w-[50%] items-center text-center'>
+                    <fieldset className="fieldset mx-auto  bg-sky-100 border-sky-300 rounded-box border p-4">
                         <legend className="fieldset-legend">Page details</legend>
 
                         <label className="label">Tour Package Name</label>
-                        <input type="text" defaultValue={tour_name} name='tour_name' className="input w-full" placeholder="My awesome page" readOnly />
+                        <input type="text" defaultValue={data.tour_name}  className="input w-full" placeholder="My awesome page" readOnly />
                         {/* Price */}
                         <label className="label">Price (not editable)</label>
-                        <input type="number" defaultValue={price} name="price" className="input w-full" placeholder="price" readOnly />
+                        <input type="number" defaultValue={data.price} className="input w-full" placeholder="price" readOnly />
                         {/* Buyer Name */}
                         <label className="label">Buyer Name</label>
                         <input type="text" name='name' defaultValue={user.displayName} className="input w-full" placeholder="Name" readOnly />

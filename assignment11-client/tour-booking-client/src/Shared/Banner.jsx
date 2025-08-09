@@ -32,9 +32,9 @@ const Banner = () => {
           </div>
           <Link
             to='all-packages'
-            className="btn btn-wide absolute left-[24%] md:left-[32%] lg:left-[34%] lg:bottom-[5%] bottom-[4%] 
-             bg-yellow-300 text-yellow-900 font-bold border-none 
-             hover:bg-yellow-500 hover:text-yellow-100 
+            className="btn btn-wide rounded-full absolute left-[24%] md:left-[32%] lg:left-[34%] lg:bottom-[5%] bottom-[4%] 
+             bg-sky-400 text-slate-900 font-bold border-none 
+             hover:bg-sky-900 hover:text-slate-100 
              lg:text-xl lg:px-12 lg:py-6 transition-colors duration-300"
           >
             Explore more

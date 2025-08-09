@@ -44,7 +44,7 @@ const SignUp = () => {
 
     }
     return (
-        <div className='md:flex md:flex-raw justify-center items-center mx-auto'>
+        <div className='md:flex md:flex-raw bg-gray-50 justify-center items-center mx-auto pt-8'>
             <Helmet>
                 <title>Zahaba | Sign Up</title>
             </Helmet>
@@ -54,7 +54,8 @@ const SignUp = () => {
             <div className='card bg-base-100 w-full md:w-sm shadow-2xl my-12'>
 
                 <div className='card-body'>
-                    <h1 className='text-3xl font-bold'> Sign Up  <span className='text-[#8cdb81]'>now </span> !</h1>
+                    <h1 className='text-3xl font-bold'> Sign Up  <span className='text-[#0f65bb]'>now </span> !</h1>
+                    <p className='text-gray-400 text-sm'>Manage your itineraries and make secure payments in your Zahabar tour account.</p>
                     <form onSubmit={handleSignUp} className='fieldset'>
                         <label className='label'>Name</label>
                         <input type='text' name='name' className='input w-full' placeholder='Name' />
@@ -83,7 +84,7 @@ const SignUp = () => {
                         <div>
                             <Link to='/signin' className='link link-hover'>Already have an account?<span className='text-blue-600'>Please sign in</span></Link>
                         </div>
-                        <button className='btn btn-neutral mt-4'>Sign up</button>
+                        <button className='btn bg-[#0f65bb] text-white mt-4'>Sign up</button>
                     </form>
                 </div>
 

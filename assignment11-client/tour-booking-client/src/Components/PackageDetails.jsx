@@ -14,7 +14,7 @@ const PackageDetails = () => {
           <Helmet>
                 <title>Zahaba| Details</title>
             </Helmet>
-  <div className="lg:max-w-5xl mx-auto bg-base-100 shadow-xl py-10 px-6 rounded-3xl space-y-10">
+  <div className="lg:max-w-full mx-auto bg-base-100 shadow-xl py-10 px-6 rounded-3xl space-y-10">
 
     
     <img
@@ -58,7 +58,7 @@ const PackageDetails = () => {
     <div className="text-center space-y-4">
       <h2 className="text-3xl font-semibold text-teal-600"> Price:<span className='text-accent'> BDT {price}</span></h2>
       <Link to={`/package/${_id}`}>
-        <button className="btn btn-primary lg:text-2xl text-lg lg:px-20 px-10 py-6">Book Now</button>
+        <button className="btn bg-sky-600 text-white hover:bg-sky-700 lg:text-2xl text-lg lg:px-20 px-10 py-6">Book Now</button>
       </Link>
     </div>
   </div>

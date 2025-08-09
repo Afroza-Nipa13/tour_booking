@@ -187,7 +187,7 @@ const Navbar = () => {
                     <span> Zahaba Tours</span></Link>
             </div>
 
-            <div className='navbar-center hidden lg:flex'>
+            <div className='navbar-center hidden lg:flex gap-2'>
                 <ul className='menu menu-horizontal px-1 bg-base-100 items-center'>
                     {links}
 
@@ -199,7 +199,7 @@ const Navbar = () => {
                     <li>
                         <label className="swap swap-rotate">
                             {/* this hidden checkbox controls the state */}
-                            <input type="checkbox" className="theme-controller" value="fantasy" />
+                            <input type="checkbox" className="theme-controller" value="forest" />
 
                             {/* sun icon */}
                             <svg

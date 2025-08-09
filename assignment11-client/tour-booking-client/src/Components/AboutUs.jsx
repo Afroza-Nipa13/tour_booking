@@ -35,10 +35,10 @@ const AboutUs = () => {
                         <motion.div
                             whileHover={{ scale: 1.2 }}
                             whileTap={{ scale: 0.8 }}
-                            className="bg-[#1f0745] text-gray-100 p-6 rounded-2xl shadow">
+                            className="bg-sky-800 text-gray-100 p-6 rounded-2xl shadow">
                             <img src="https://cdn-icons-png.flaticon.com/128/684/684908.png" className="w-12 mx-auto mb-4" alt="" />
                             <h3 className="text-xl font-semibold">Our Mission</h3>
-                            <p className="text-gray-600">To provide affordable, exciting, and safe travel experiences for all kinds of travelers.</p>
+                            <p className="text-gray-300">To provide affordable, exciting, and safe travel experiences for all kinds of travelers.</p>
                         </motion.div>
 
                         <motion.div
@@ -52,10 +52,10 @@ const AboutUs = () => {
 
                         <motion.div
                             whileHover={{ scale: 1.2 }}
-                            whileTap={{ scale: 0.8 }} className="bg-[#1f0745] text-gray-100 p-6 rounded-2xl shadow">
+                            whileTap={{ scale: 0.8 }} className="bg-sky-800 text-gray-100 p-6 rounded-2xl shadow">
                             <img src="https://cdn-icons-png.flaticon.com/128/3468/3468370.png" className="w-12 mx-auto mb-4" alt="" />
                             <h3 className="text-xl font-semibold">Why Choose Us?</h3>
-                            <p className="text-gray-600">Trusted by 1000+ travelers, our tours are designed for comfort, fun, and lifelong memories.</p>
+                            <p className="text-gray-300">Trusted by 1000+ travelers, our tours are designed for comfort, fun, and lifelong memories.</p>
                         </motion.div>
                     </div>
                     <SeeTheWorld />

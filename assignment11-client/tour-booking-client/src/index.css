@@ -3,7 +3,7 @@
 @plugin "daisyui";
 
  @plugin "daisyui" {
-   themes: sunset --default, dark --prefersdark,fantasy,sunset;
+   themes: light --default, dark --prefersdark, forest;
  }
 
 body {

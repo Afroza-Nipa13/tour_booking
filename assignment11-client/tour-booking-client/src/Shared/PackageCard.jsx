@@ -13,37 +13,11 @@ const PackageCard = ({tourPack}) => {
   </figure>
   <div className="card-body">
   
-  <div className='h-[90px]'>
-    <h2 className="card-title text-2xl text-primary">{tour_name}</h2>
+  <div className='h-auto'>
+    <h2 className="card-title text-2xl text-primary text-start">{tour_name}</h2>
   </div>
-  
-
-  
-
-  
   <div>
-    {/* <h3 className="text-sm font-bold uppercase text-gray-500 mb-1">Guide</h3>
-    <div className="flex bg-base-200 rounded-lg justify-between items-center p-4">
-      <div className="flex items-center gap-3">
-        <div className="avatar">
-          <div className="w-12 rounded-full ring ring-info ring-offset-base-100 ring-offset-2">
-            <img src={guide_photo} alt={guide_name} />
-          </div>
-        </div>
-        <div>
-          <h2 className="font-semibold text-sm">{guide_name}</h2>
-          <p className="text-xs text-gray-500">Certified Tour Guide</p>
-        </div>
-      </div>
-      
-      <div className="badge badge-info text-white p-3 text-xs">
-        ⭐ 4.8
-      </div>
-
-    </div> */}
-  </div>
- <div>
-  <div className='flex flex-col space-y-2'>
+  <div className='flex flex-col'>
   <div className='flex flex-col justify-start text-start'>
     <h2 className=" text-sm text-gray-500">Duration : <span className='font-semibold text-primary'> {duration} </span></h2>
   <h2 className=" text-sm text-gray-500">Deparurture Date : <span className='font-semibold text-primary'>{departure_date}</span></h2>
@@ -54,7 +28,7 @@ const PackageCard = ({tourPack}) => {
   
   <div className="card-actions justify-end pt-2">
     <Link to={`/all-packages/${_id}`}>
-      <button className="btn btn-info text-gray-800 flex gap-2 items-center">
+      <button className="btn btn-info text-gray-800 hover:text-white flex gap-2 items-center shadow">
         Details <FaLocationArrow />
       </button>
     </Link>

@@ -57,7 +57,7 @@ const router=createBrowserRouter([
       },
       {
         path:'/package/:id',
-        loader: ({params})=>fetch(`http://localhost:3000/package/${params.id}`),
+        loader: ({params})=>fetch(`http://localhost:3000/package/${params.id}`).then(res=>res.json()),
         element:<PrivateRoute>
           <TourBooking></TourBooking>
         </PrivateRoute>

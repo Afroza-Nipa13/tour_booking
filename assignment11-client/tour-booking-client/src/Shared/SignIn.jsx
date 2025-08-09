@@ -1,17 +1,27 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../contexts/AuthContext';
-import { Link, useLocation, useNavigate } from 'react-router';
+
+
+import { Link, Navigate, useLocation, useNavigate } from 'react-router';
 import SocialLogin from '../Shared/socialLogin';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
 import Lottie from 'lottie-react';
-import signin from '../assets/lotties/signin.json'
+import signin from '../assets/lotties/signup.json'
 import { Helmet } from 'react-helmet-async';
+import useAuth from '../Components/Hooks/useAuth';
+import Loader from '../Pages/Loader';
+import { useEffect } from 'react';
 
 const SignIn = () => {
-  const { sighInUser } = useContext(AuthContext)
-  const navigate = useNavigate();
-  const location = useLocation();
-  const from = location.state?.form || '/'
+  const { sighInUser, user, loading } = useAuth()
+  const navigate = useNavigate()
+  const location = useLocation()
+  const from = location?.state?.from?.pathname || '/'
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+    }
+  }, [user, from, navigate]);
+
+  if (loading) return <Loader />;
 
   const handleSignIn = (e) => {
     e.preventDefault()
@@ -26,19 +36,19 @@ const SignIn = () => {
 
 
           toast.error("Signed in successfully!")
-          navigate(from, { replace: true })
+          
         }
 
       })
       .catch(err => {
-        // console.log(err)
+        console.log(err)
         toast.error("Failed to sign in!");
 
       })
 
   }
   return (
-    <div className='md:flex md:flex-raw justify-center gap-5 items-center mx-auto'>
+    <div className='md:flex md:flex-raw justify-center bg-gray-50 gap-5 items-center mx-auto'>
       <Helmet>
         <title>Zahaba | Sign In</title>
       </Helmet>
@@ -47,8 +57,8 @@ const SignIn = () => {
       </div>
       <div className='card bg-base-100 w-full md:w-sm shadow-2xl my-12'>
         <div className='card-body'>
-          <h1 className='text-3xl font-bold'> Sign In  <span className='text-[#8cdb81]'>now </span> !</h1>
-          <p className='text-gray-400 text-sm'>Manage your itineraries and make secure payments in your Zahabar tour account.</p>
+          <h1 className='text-3xl font-bold'> Sign In  <span className='text-[#0f65bb]'>now </span> !</h1>
+
           <form onSubmit={handleSignIn} className='fieldset'>
             <label className='label'>Email</label>
             <input
@@ -67,9 +77,9 @@ const SignIn = () => {
             <div>
               <Link to='/signup' className='link link-hover'>New to our page? <span className='text-red-500'>Sign Up now. </span></Link>
             </div>
-            <button type='submit' className='btn btn-neutral mt-4 bg-[#8cdb81] text-base-100 border-none'>Sign in</button>
+            <button type='submit' className='btn btn-neutral mt-4 bg-[#0f65bb] text-base-100 border-none'>Sign in</button>
           </form>
-          <SocialLogin from={from}></SocialLogin>
+          <SocialLogin></SocialLogin>
         </div>
       </div>
       <ToastContainer

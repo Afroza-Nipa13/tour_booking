@@ -6,7 +6,7 @@ import Banner from '../Shared/Banner';
 
 const MainLayOut = () => {
     return (
-        <div>
+        <div className='bg-gray-50'>
             <Navbar></Navbar>
             
             

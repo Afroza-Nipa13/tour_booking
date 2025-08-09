@@ -31,9 +31,9 @@ const Banner = () => {
             </p>
           </div>
           <Link
-            to='/all-packages'
-            className="btn btn-wide absolute left-1/2 bottom-[12%] transform -translate-x-1/2 
-             bg-yellow-400 text-yellow-900 font-bold border-none 
+            to='all-packages'
+            className="btn btn-wide absolute left-[24%] md:left-[32%] lg:left-[34%] lg:bottom-[5%] bottom-[4%] 
+             bg-yellow-300 text-yellow-900 font-bold border-none 
              hover:bg-yellow-500 hover:text-yellow-100 
              lg:text-xl lg:px-12 lg:py-6 transition-colors duration-300"
           >

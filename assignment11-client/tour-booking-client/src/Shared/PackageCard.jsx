@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 const PackageCard = ({tourPack}) => {
     const {_id,tour_name,duration,departure_date,guide_photo,image,guide_name,price,}= tourPack;
     return (
-        <div className="card bg-base-100 hover:bg-blue-100 shadow-lg">
+        <div className="card bg-base-100 hover:bg-blue-100 shadow-lg cursor-pointer">
   <figure className=' h-[35vh]'>
     <img className="w-full h-full object-cover overflow-hidden"
       src={image}
@@ -54,7 +54,7 @@ const PackageCard = ({tourPack}) => {
   
   <div className="card-actions justify-end pt-2">
     <Link to={`/all-packages/${_id}`}>
-      <button className="btn btn-info text-white flex gap-2 items-center">
+      <button className="btn btn-info text-gray-800 flex gap-2 items-center">
         Details <FaLocationArrow />
       </button>
     </Link>

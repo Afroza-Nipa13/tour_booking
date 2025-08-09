@@ -5,22 +5,24 @@ import { Link } from 'react-router';
 const PackageCard = ({tourPack}) => {
     const {_id,tour_name,duration,departure_date,guide_photo,image,guide_name,price,}= tourPack;
     return (
-        <div className="card lg:card-side bg-base-100 hover:bg-blue-100 shadow-lg">
-  <figure className='flex-1'>
-    <img className="lg:w-[400px]"
+        <div className="card bg-base-100 hover:bg-blue-100 shadow-lg">
+  <figure className=' h-[35vh]'>
+    <img className="w-full h-full object-cover overflow-hidden"
       src={image}
       alt={tour_name} />
   </figure>
-  <div className="card-body flex-1 space-y-4">
+  <div className="card-body">
   
-  <h2 className="card-title text-2xl text-primary">{tour_name}</h2>
+  <div className='h-[90px]'>
+    <h2 className="card-title text-2xl text-primary">{tour_name}</h2>
+  </div>
   
 
   
 
   
   <div>
-    <h3 className="text-sm font-bold uppercase text-gray-500 mb-1">Guide</h3>
+    {/* <h3 className="text-sm font-bold uppercase text-gray-500 mb-1">Guide</h3>
     <div className="flex bg-base-200 rounded-lg justify-between items-center p-4">
       <div className="flex items-center gap-3">
         <div className="avatar">
@@ -38,19 +40,19 @@ const PackageCard = ({tourPack}) => {
         ⭐ 4.8
       </div>
 
-    </div>
+    </div> */}
   </div>
  <div>
-  <div className='flex flex-col space-y-4'>
+  <div className='flex flex-col space-y-2'>
   <div className='flex flex-col justify-start text-start'>
     <h2 className=" text-sm text-gray-500">Duration : <span className='font-semibold text-primary'> {duration} </span></h2>
   <h2 className=" text-sm text-gray-500">Deparurture Date : <span className='font-semibold text-primary'>{departure_date}</span></h2>
   </div>
-  <h2 className="card-title text-lg text-primary">price :<span>{price} </span></h2>
+  {/* <h2 className="card-title text-lg text-primary">price :<span>{price} </span></h2> */}
   </div>
  </div>
   
-  <div className="card-actions justify-start pt-2">
+  <div className="card-actions justify-end pt-2">
     <Link to={`/all-packages/${_id}`}>
       <button className="btn btn-info text-white flex gap-2 items-center">
         Details <FaLocationArrow />

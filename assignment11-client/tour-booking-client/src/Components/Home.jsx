@@ -8,6 +8,8 @@ import Offers from '../Pages/Offers';
 import { FaArrowUp } from "react-icons/fa";
 import { Helmet } from 'react-helmet-async';
 import Blogs from './Blogs/Blogs';
+import TermsAndCondition from '../Pages/TermsAndCondition';
+import PrivacyPolicy from '../Pages/PrivacyPolicy';
 
 
 const Home = () => {
@@ -50,6 +52,13 @@ return (
           </div>
           <div>
             <OurClients></OurClients>
+          </div>
+
+          <div>
+            <TermsAndCondition />
+          </div>
+          <div>
+            <PrivacyPolicy/>
           </div>
           <div className='flex justify-end mx-10 my-10'>
             <button onClick={handleScrollToUp} className='btn text-white rounded-full size-12 bg-radial-[at_25%_25%] from-sky-200 via-blue-400 to-indigo-900 to-90%'><FaArrowUp /></button>

@@ -19,6 +19,9 @@ import Allpackages from './Shared/Allpackages/Allpackages'
 import ContactUs from './Pages/ContactUs';
 import Error from './Pages/Error';
 import Blogs from './Components/Blogs/Blogs';
+import TermsAndCondition from './Pages/TermsAndCondition';
+import PrivacyPolicy from './Pages/PrivacyPolicy';
+import CookiePolicy from './Pages/CookiePolicy';
 // http://localhost:3000/
 // http://localhost:3000
 const router=createBrowserRouter([
@@ -59,6 +62,18 @@ const router=createBrowserRouter([
           <Allpackages></Allpackages> 
           
 
+      },
+      {
+        path:'/terms&condition',
+        element:<TermsAndCondition/>
+      },
+      {
+        path:'/privecyPolicy',
+        element:<PrivacyPolicy/>
+      },
+      {
+        path:'/cookiePolicy',
+        element:<CookiePolicy/> 
       },
       {
         path:'/package/:id',

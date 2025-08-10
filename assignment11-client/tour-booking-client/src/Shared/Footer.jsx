@@ -27,9 +27,9 @@ const Footer = () => {
         <nav>
           <h6 className="footer-title">Legal</h6>
           <ul className='grid grid-cols-1 gap-4'>
-            <li><Link to='/about-us' className="link link-hover">Terms & Conditions</Link></li>
-            <li><Link to='/about-us' className="link link-hover">Privacy policy</Link></li>
-            <li><Link to='/about-us' className="link link-hover">Cookie policy</Link></li>
+            <li><Link to='/terms&condition' className="link link-hover">Terms & Conditions</Link></li>
+            <li><Link to='/privecyPolicy' className="link link-hover">Privacy policy</Link></li>
+            <li><Link to='/cookiePolicy' className="link link-hover">Cookie policy</Link></li>
             
           </ul>
 

@@ -18,7 +18,7 @@ const Footer = () => {
           <ul className=''>
             <h2 className='footer-title'>Company</h2>
             <li><Link to='/about-us' className="link link-hover">About us</Link></li>
-            <li><Link to='/all-package' className="link link-hover">Our Hot Packages</Link></li>
+            <li><Link to='/all-packages' className="link link-hover">All Packages</Link></li>
             <li><Link to='/contact-us' className="link link-hover">Contact Us</Link></li>
 
           </ul>

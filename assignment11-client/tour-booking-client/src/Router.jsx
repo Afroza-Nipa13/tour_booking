@@ -18,8 +18,9 @@ import UpdatePackages from './Shared/UpdatePackages'
 import Allpackages from './Shared/Allpackages/Allpackages'
 import ContactUs from './Pages/ContactUs';
 import Error from './Pages/Error';
+import Blogs from './Components/Blogs/Blogs';
 // http://localhost:3000/
-// https://tour-booking-server-five.vercel.app
+// http://localhost:3000
 const router=createBrowserRouter([
   { path: '/', 
     errorElement:<Error/>,
@@ -49,10 +50,14 @@ const router=createBrowserRouter([
         
       },
       {
+        path:'/blogs',
+        element:<Blogs/>
+      },
+      {
         path:'/all-packages',
-        element:<PrivateRoute>
+        element:
           <Allpackages></Allpackages> 
-          </PrivateRoute>
+          
 
       },
       {

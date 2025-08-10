@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../Components/Navbar';
 import { Outlet } from 'react-router';
 import Footer from '../Shared/Footer';
 import Banner from '../Shared/Banner';
 
+
 const MainLayOut = () => {
+
+    //  useEffect(() => {
+    //     AOS.init({
+    //         duration: 800,
+    //         once: false,
+    //         mirror: false,
+    //     })
+    // }, [])
     return (
-        <div className='bg-gray-50'>
+        <div className='mx-auto'>
             <Navbar></Navbar>
             
             

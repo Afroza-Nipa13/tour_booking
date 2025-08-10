@@ -21,7 +21,7 @@ const MyPostedPackageList = ({ packageCreatedByPromise }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         // delete from database
-        axios.delete(`https://tour-booking-server-five.vercel.app/all-packages/${_id}`).then(res => {
+        axios.delete(`http://localhost:3000/all-packages/${_id}`).then(res => {
           // console.log(res.data)
           if (res.data.deletedCount > 0) {
 
@@ -42,12 +42,13 @@ const MyPostedPackageList = ({ packageCreatedByPromise }) => {
 
   }
   return (
-    <div className="overflow-x-auto text-center items-center mx-auto md:w-7xl my-10 space-y-7">
+    <div className="overflow-x-auto text-center items-center mx-auto max-w-11/12 my-10 space-y-7">
       <Helmet>
         <title>Zahaba|My Posted Packages</title>
       </Helmet>
-      <h3 className='text-4xl font-bold text-primary'>Manage My posted packages : <span className='text-accent'> {packages.length}</span></h3>
-      <table className="table lg:max-w-5xl md:max-w-3xl  mx-auto">
+      <h3 className='text-4xl font-bold text-sky-600'>Manage My posted packages </h3>
+      <p>Total Added Packages : <span className='text-red-600'> {packages.length}</span></p>
+      <table className="table max-w-11/12   mx-auto">
         {/* head */}
         <thead>
           <tr>

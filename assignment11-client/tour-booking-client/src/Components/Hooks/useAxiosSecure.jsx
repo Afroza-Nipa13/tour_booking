@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import useAuth from './useAuth';
-// https://tour-booking-server-five.vercel.app
+// http://localhost:3000
 const axiosInstance = axios.create({
     baseURL: 'http://localhost:3000'
 })

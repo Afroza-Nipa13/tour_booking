@@ -7,6 +7,7 @@ import OurClients from '../Pages/OurClients';
 import Offers from '../Pages/Offers';
 import { FaArrowUp } from "react-icons/fa";
 import { Helmet } from 'react-helmet-async';
+import Blogs from './Blogs/Blogs';
 
 
 const Home = () => {
@@ -43,6 +44,9 @@ return (
           
           <div>
             <Offers></Offers>
+          </div>
+          <div>
+            {/* <Blogs/> */}
           </div>
           <div>
             <OurClients></OurClients>

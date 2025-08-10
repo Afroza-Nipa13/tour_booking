@@ -1,5 +1,5 @@
 export const myBookingsPromise = (email,accessToken) =>{
-        return fetch(`https://tour-booking-server-five.vercel.app/bookings?email=${email}`,{
+        return fetch(`http://localhost:3000/bookings?email=${email}`,{
                 headers:{
                         authorization: `Bearer ${accessToken}`
                 }
@@ -10,7 +10,7 @@ export const myBookingsPromise = (email,accessToken) =>{
 // confirm Booking api
 
 export const confirmBooking =async(id, accessToken)=>{
-        const respons = await fetch(`https://tour-booking-server-five.vercel.app/bookings/${id}`,{
+        const respons = await fetch(`http://localhost:3000/bookings/${id}`,{
                 method:"PATCH",
                 headers:{
                         "content-type": "application/json",

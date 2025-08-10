@@ -22,6 +22,7 @@ import Blogs from './Components/Blogs/Blogs';
 import TermsAndCondition from './Pages/TermsAndCondition';
 import PrivacyPolicy from './Pages/PrivacyPolicy';
 import CookiePolicy from './Pages/CookiePolicy';
+import TourPromotion from './Shared/TourPromotion';
 // http://localhost:3000/
 // http://localhost:3000
 const router=createBrowserRouter([
@@ -74,6 +75,10 @@ const router=createBrowserRouter([
       {
         path:'/cookiePolicy',
         element:<CookiePolicy/> 
+      },
+      {
+        path:'/tourPromotion',
+        element:<TourPromotion/>
       },
       {
         path:'/package/:id',

@@ -35,12 +35,7 @@ const Allpackages = () => {
 
     }, [searchText])
 
-    const handleScrollToUp = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    }
+    
     return (
         <div className='items-center text-center mb-8'>
             <Helmet>
@@ -92,10 +87,7 @@ const Allpackages = () => {
                     )}
 
 
-            <div className='flex justify-end mx-10 my-10'>
-                <button onClick={handleScrollToUp} className='btn text-white rounded-full size-12 bg-radial-[at_25%_25%] from-sky-200 via-blue-400 to-indigo-900 to-90%'><FaArrowUp /></button>
-            </div>
-
+            
         </div>
     );
 };

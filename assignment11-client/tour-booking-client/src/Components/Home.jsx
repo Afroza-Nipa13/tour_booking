@@ -10,6 +10,7 @@ import { Helmet } from 'react-helmet-async';
 import Blogs from './Blogs/Blogs';
 import TermsAndCondition from '../Pages/TermsAndCondition';
 import PrivacyPolicy from '../Pages/PrivacyPolicy';
+import TourPromotion from '../Shared/TourPromotion';
 
 
 const Home = () => {
@@ -23,12 +24,7 @@ fetch("http://localhost:3000/getSixPackages").then(res=>res.json())
 })
 },[])
 
-const handleScrollToUp=()=>{
-  window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-}
+
  
    
 return (
@@ -43,26 +39,27 @@ return (
           </Suspense>
           </div>
           
-          
-          <div>
-            <Offers></Offers>
-          </div>
           <div>
             {/* <Blogs/> */}
           </div>
-          <div>
-            <OurClients></OurClients>
-          </div>
+          
 
           <div>
             <TermsAndCondition />
           </div>
           <div>
+            <Offers></Offers>
+          </div>
+          <div>
             <PrivacyPolicy/>
           </div>
-          <div className='flex justify-end mx-10 my-10'>
-            <button onClick={handleScrollToUp} className='btn text-white rounded-full size-12 bg-radial-[at_25%_25%] from-sky-200 via-blue-400 to-indigo-900 to-90%'><FaArrowUp /></button>
+          <div>
+            <OurClients></OurClients>
           </div>
+          <div>
+            <TourPromotion/>
+          </div>
+          
         </div>
     );
 };

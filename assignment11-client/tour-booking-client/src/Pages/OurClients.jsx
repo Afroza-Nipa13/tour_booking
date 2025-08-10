@@ -9,7 +9,7 @@ const OurClients = () => {
                 <title>Zahaba | Our Clients</title>
             </Helmet>
       <div className="max-w-xl mb-6 sm:mx-auto sm:text-center md:mb-10 lg:max-w-2xl">
-        <h2 className="divider uppercase text-secondary text-center lg:mb-10 md:mb-5 font-semibold lg:text-5xl md:text-4xl text-2xl">
+        <h2 className="divider uppercase text-sky-700 text-center lg:mb-10 md:mb-5 font-semibold lg:text-4xl md:text-3xl text-2xl">
           our happy clients
         </h2>
         <p className="text-base md:text-lg">

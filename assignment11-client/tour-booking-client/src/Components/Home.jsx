@@ -11,6 +11,7 @@ import Blogs from './Blogs/Blogs';
 import TermsAndCondition from '../Pages/TermsAndCondition';
 import PrivacyPolicy from '../Pages/PrivacyPolicy';
 import TourPromotion from '../Shared/TourPromotion';
+import PopularDestination from '../Shared/PopularDestination';
 
 
 const Home = () => {
@@ -42,7 +43,9 @@ return (
           <div>
             {/* <Blogs/> */}
           </div>
-          
+          <div>
+            <PopularDestination/>
+          </div>
 
           <div>
             <TermsAndCondition />

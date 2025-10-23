@@ -23,6 +23,7 @@ import TermsAndCondition from './Pages/TermsAndCondition';
 import PrivacyPolicy from './Pages/PrivacyPolicy';
 import CookiePolicy from './Pages/CookiePolicy';
 import TourPromotion from './Shared/TourPromotion';
+import GalleryPage from './Shared/GalleryPage';
 // http://localhost:3000/
 // http://localhost:3000
 const router=createBrowserRouter([
@@ -71,6 +72,14 @@ const router=createBrowserRouter([
       {
         path:'/privecyPolicy',
         element:<PrivacyPolicy/>
+      },
+      {
+        path: '/gallery', 
+        element: <GalleryPage/>
+      },
+      {
+        path: '/gallery/:id', 
+        element: <GalleryPage/>
       },
       {
         path:'/cookiePolicy',

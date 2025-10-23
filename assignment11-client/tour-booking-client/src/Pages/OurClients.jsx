@@ -1,6 +1,7 @@
 import React from 'react';
 import Marquee from 'react-fast-marquee';
 import { Helmet } from 'react-helmet-async';
+import { motion } from "framer-motion";
 
 const OurClients = () => {
     return (
@@ -9,9 +10,14 @@ const OurClients = () => {
                 <title>Zahaba | Our Clients</title>
             </Helmet>
       <div className="max-w-xl mb-6 sm:mx-auto sm:text-center md:mb-10 lg:max-w-2xl">
-        <h2 className="divider uppercase text-sky-700 text-center lg:mb-10 md:mb-5 font-semibold lg:text-4xl md:text-3xl text-2xl">
+        <motion.h2
+                                            initial={{ opacity: 0, y: -20 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 0.8 }}
+                                            className="text-4xl md:text-5xl font-bold text-sky-800 mb-8 divider"
+                                        >
           our happy clients
-        </h2>
+        </motion.h2>
         <p className="text-base md:text-lg">
           What Our Happy Clients Are Saying
         </p>

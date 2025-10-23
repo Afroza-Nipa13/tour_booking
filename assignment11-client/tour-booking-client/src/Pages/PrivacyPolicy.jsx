@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { motion } from "framer-motion";
 
 const PrivacyPolicy = () => {
     return (
-         <div className="min-h-screen mx-auto max-w-full flex justify-center p-4 sm:p-6 lg:p-8 font-sans">
+         <div className="min-h-screen mx-auto max-w-full flex justify-center p-4 sm:p-6 lg:p-8">
       <div className="w-full max-w-full">
         <div className="p-6 sm:p-8 rounded-2xl shadow-lg">
           {/* Hero Image at the top of the content box */}
@@ -15,9 +16,14 @@ const PrivacyPolicy = () => {
             />
           </div>
 
-          <h1 className="text-3xl sm:text-4xl font-medium uppercase divider text-center text-sky-800 mb-6 sm:mb-8">
+          <motion.h2
+                                    initial={{ opacity: 0, y: -20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.8 }}
+                                    className="text-4xl md:text-5xl font-bold text-sky-800 mb-8 divider"
+                                >
             Privacy Policy
-          </h1>
+          </motion.h2>
           
           <p className="text-gray-500 text-sm sm:text-base text-center mb-6">
             Last updated: August 10, 2025

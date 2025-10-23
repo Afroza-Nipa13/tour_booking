@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { motion } from "framer-motion";
+
 
 const TourPromotion = () => {
     return (
-        <div className="container mx-auto px-2 py-16 font-sans">
+        <div className="container mx-auto px-2 py-16">
             {/* The main container uses a flex layout. It's a column on small screens (default)
           and a row on large screens (lg:flex-row). */}
             <div className="w-full flex flex-col lg:flex-row items-center rounded-2xl shadow-xl overflow-hidden p-6 sm:p-10">
@@ -45,10 +47,15 @@ const TourPromotion = () => {
 
                 {/* Text Description Section */}
                 {/* This section also takes up the full width on small screens and half the width on large screens. */}
-                <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left">
-                    <h2 className="text-3xl font-medium uppercase divider text-sky-800 mb-8">
+                <div className="w-full lg:w-1/2 flex flex-col justify-center gap-8 text-center lg:text-left">
+                    <motion.h2
+                                    initial={{ opacity: 0, y: -20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.8 }}
+                                    className="text-4xl md:text-5xl font-bold text-sky-800 mb-8 divider"
+                                >
                         Unforgettable <br />Adventures Await
-                    </h2>
+                    </motion.h2>
                     <p className="text-gray-500 text-lg mb-6 leading-relaxed">
                         Discover our exclusive "Grand European Tour" package, a 14-day journey through the most iconic cities in Europe. Immerse yourself in history, art, and breathtaking landscapes as you explore Paris, Rome, and Venice. This all-inclusive plan handles everything from flights and luxury accommodations to guided tours and authentic local experiences, ensuring a seamless and memorable trip.
                     </p>

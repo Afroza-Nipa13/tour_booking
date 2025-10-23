@@ -160,7 +160,7 @@ const Navbar = () => {
                     <img
                         className='w-10 h-10'
                         src={logo} />
-                    <span> Zahaba Tours</span></Link>
+                    <span className='text-[#2f69c8]'> Zahaba Tours</span></Link>
             </div>
 
             <div className='navbar-center hidden lg:flex gap-2'>

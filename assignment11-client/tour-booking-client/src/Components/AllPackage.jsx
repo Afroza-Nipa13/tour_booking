@@ -1,4 +1,4 @@
-
+import { motion } from "framer-motion";
 import PackageCard from '../Shared/PackageCard';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import { useNavigate } from 'react-router';
@@ -37,7 +37,12 @@ const AllPackage = ({ allPackages }) => {
     return (
         <div className='items-center text-center py-20'>
             <div className='max-w-xl mb-6 sm:mx-auto sm:text-center md:mb-10 lg:max-w-2xl'>
-                <h1 className='divider text-sky-700 text-center uppercase lg:mb-10 md:mb-5 font-semibold lg:text-4xl md:text-3xl text-2xl'>Our Hot Packages</h1>
+                <motion.h2
+                                    initial={{ opacity: 0, y: -20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.8 }}
+                                    className="text-4xl md:text-5xl font-bold text-sky-800 mb-8 divider"
+                                >Our Hot Packages</motion.h2>
             </div>
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 py-10'>

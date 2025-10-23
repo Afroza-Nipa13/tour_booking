@@ -1,18 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router';
-
+import { motion } from "framer-motion";
 // This is the main component that renders the Terms and Conditions page.
 // In a real application, you would use React Router to display this component
 // when the user navigates to the appropriate URL.
 const TermsAndCondition = () => {
   return (
-   <div className="min-h-screen max-w-full flex justify-center mx-auto p-4 sm:p-6 lg:p-8 font-sans">
+   <div className="min-h-screen max-w-full flex justify-center mx-auto p-4 sm:p-6 lg:p-8">
       <div className="w-full  md:flex md:space-x-8">
         {/* Content Column */}
         <div className="flex-1 p-6 sm:p-8 rounded-2xl shadow-lg mb-8 md:mb-0">
-          <h1 className="text-3xl sm:text-4xl font-medium divider uppercase text-center text-sky-800 mb-6 sm:mb-8">
+          <motion.h2
+                                    initial={{ opacity: 0, y: -20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.8 }}
+                                    className="text-4xl md:text-5xl font-bold text-sky-800 mb-8 divider"
+                                >
             Terms & Conditions
-          </h1>
+          </motion.h2>
           
           <p className="text-gray-500 text-sm sm:text-base text-center mb-6">
             Last updated: August 10, 2025

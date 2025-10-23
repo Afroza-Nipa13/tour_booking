@@ -40,20 +40,20 @@ const Navbar = () => {
 
     const links = <>
         <li>
-            <NavLink to="/" className={({ isActive }) => isActive ? "bg-sky-900 text-white px-4 py-2 rounded-md flex items-center gap-2" : "px-4 py-2 flex items-center gap-2"}>
+            <NavLink to="/" className={({ isActive }) => isActive ? "bg-[#2f69c8] text-white px-4 py-2 rounded-md flex items-center gap-2" : "px-4 py-2 flex items-center gap-2"}>
                 <FaHome /> Home
             </NavLink>
         </li>
 
         <li>
-            <NavLink to="/all-packages" className={({ isActive }) => isActive ? "bg-sky-900 text-white px-4 py-2 rounded-md flex items-center gap-2" : "px-4 py-2 flex items-center gap-2"}>
+            <NavLink to="/all-packages" className={({ isActive }) => isActive ? "bg-[#2f69c8] text-white px-4 py-2 rounded-md flex items-center gap-2" : "px-4 py-2 flex items-center gap-2"}>
                 <FaBoxOpen /> All Packages
             </NavLink>
         </li>
 
         {user && (
             <li>
-                <NavLink to="/my-bookings" className={({ isActive }) => isActive ? "bg-sky-900 text-white px-4 py-2 rounded-md flex items-center gap-2" : "px-4 py-2 flex items-center gap-2"}>
+                <NavLink to="/my-bookings" className={({ isActive }) => isActive ? "bg-[#2f69c8] text-white px-4 py-2 rounded-md flex items-center gap-2" : "px-4 py-2 flex items-center gap-2"}>
                     <FaCalendarCheck /> My Bookings
                 </NavLink>
             </li>
@@ -61,20 +61,20 @@ const Navbar = () => {
 
         {user && (
             <li>
-                <NavLink to="/myPostedPackages" className={({ isActive }) => isActive ? "bg-sky-900 text-white px-4 py-2 rounded-md flex items-center gap-2" : "px-4 py-2 flex items-center gap-2"}>
+                <NavLink to="/myPostedPackages" className={({ isActive }) => isActive ? "bg-[#2f69c8] text-white px-4 py-2 rounded-md flex items-center gap-2" : "px-4 py-2 flex items-center gap-2"}>
                     <FaClipboardList /> Manage My Packages
                 </NavLink>
             </li>
         )}
 
         <li>
-            <NavLink to="/about-us" className={({ isActive }) => isActive ? "bg-sky-900 text-white px-4 py-2 rounded-md flex items-center gap-2" : "px-4 py-2 flex items-center gap-2"}>
+            <NavLink to="/about-us" className={({ isActive }) => isActive ? "bg-[#2f69c8] text-white px-4 py-2 rounded-md flex items-center gap-2" : "px-4 py-2 flex items-center gap-2"}>
                 <FaInfoCircle /> About Us
             </NavLink>
         </li>
 
         <li>
-            <NavLink to="/contact-us" className={({ isActive }) => isActive ? "bg-sky-900 text-white px-4 py-2 rounded-md flex items-center gap-2" : "px-4 py-2 flex items-center gap-2"}>
+            <NavLink to="/contact-us" className={({ isActive }) => isActive ? "bg-[#2f69c8] text-white px-4 py-2 rounded-md flex items-center gap-2" : "px-4 py-2 flex items-center gap-2"}>
                 <FaPhoneAlt /> Contact
             </NavLink>
         </li>
@@ -114,7 +114,7 @@ const Navbar = () => {
                                     <NavLink
                                         to='/'
                                         className={({ isActive }) =>
-                                            `block px-4 py-2 rounded-md transition-colors duration-300 ${isActive ? 'bg-sky-900 text-white' : 'hover:bg-sky-100'
+                                            `block px-4 py-2 rounded-md transition-colors duration-300 ${isActive ? 'bg-[#2f69c8] text-white' : 'hover:bg-sky-100'
                                             }`
                                         }
                                     >
@@ -129,7 +129,7 @@ const Navbar = () => {
                                         to="/signin"
                                         className={({ isActive }) =>
                                             `flex items-center gap-2 px-4 py-2 rounded-md transition-colors duration-300 ${isActive
-                                                ? "bg-sky-900 text-white"
+                                                ? "bg-[#2f69c8] text-white"
                                                 : "hover:bg-sky-100"
                                             }`
                                         }
@@ -143,7 +143,7 @@ const Navbar = () => {
                                         to="/signup"
                                         className={({ isActive }) =>
                                             `flex items-center gap-2 px-4 py-2 rounded-md transition-colors duration-300 ${isActive
-                                                ? "bg-sky-900 text-white"
+                                                ? "bg-[#2f69c8] text-white"
                                                 : "hover:bg-sky-100"
                                             }`
                                         }
@@ -230,7 +230,7 @@ const Navbar = () => {
                                                                 <NavLink
                                                                     to={`/package/${user._id}`}
                                                                     className={({ isActive }) =>
-                                                                        `px-4 py-2 rounded-md ${isActive ? 'bg-sky-900 text-white' : 'hover:bg-sky-100'
+                                                                        `px-4 py-2 rounded-md ${isActive ? 'bg-[#2f69c8] text-white' : 'hover:bg-sky-100'
                                                                         }`
                                                                     }
                                                                 >
@@ -241,7 +241,7 @@ const Navbar = () => {
                                                                 <NavLink
                                                                     to='/manage-my-packages'
                                                                     className={({ isActive }) =>
-                                                                        `px-4 py-2 rounded-md ${isActive ? 'bg-sky-900 text-white' : 'hover:bg-sky-100'
+                                                                        `px-4 py-2 rounded-md ${isActive ? 'bg-[#2f69c8] text-white' : 'hover:bg-sky-100'
                                                                         }`
                                                                     }
                                                                 >
@@ -258,7 +258,7 @@ const Navbar = () => {
                                                                 <NavLink
                                                                     to='/addPackage'
                                                                     className={({ isActive }) =>
-                                                                        `px-4 py-2 rounded-md ${isActive ? 'bg-sky-900 text-white' : 'hover:bg-sky-100'
+                                                                        `px-4 py-2 rounded-md ${isActive ? 'bg-[#2f69c8] text-white' : 'hover:bg-sky-100'
                                                                         }`
                                                                     }
                                                                 >
@@ -269,7 +269,7 @@ const Navbar = () => {
                                                                 <NavLink
                                                                     to='/myPostedPackages'
                                                                     className={({ isActive }) =>
-                                                                        `px-4 py-2 rounded-md ${isActive ? 'bg-sky-900 text-white' : 'hover:bg-sky-100'
+                                                                        `px-4 py-2 rounded-md ${isActive ? 'bg-[#2f69c8] text-white' : 'hover:bg-sky-100'
                                                                         }`
                                                                     }
                                                                 >
@@ -284,7 +284,7 @@ const Navbar = () => {
                                                             to="/"
                                                             className={({ isActive }) =>
                                                                 `flex items-center gap-2 px-4 py-2 rounded-md transition-colors duration-300 ${isActive
-                                                                    ? "bg-sky-900 text-white"
+                                                                    ? "bg-[#2f69c8] text-white"
                                                                     : "hover:bg-sky-100"
                                                                 }`
                                                             }
@@ -310,7 +310,7 @@ const Navbar = () => {
                                     to="/signin"
                                     className={({ isActive }) =>
                                         `flex items-center gap-2 px-4 py-2 rounded-md transition-colors duration-300 ${isActive
-                                            ? "bg-sky-900 text-white"
+                                            ? "bg-[#2f69c8] text-white"
                                             : "hover:bg-sky-100"
                                         }`
                                     }
@@ -324,7 +324,7 @@ const Navbar = () => {
                                     to="/signup"
                                     className={({ isActive }) =>
                                         `flex items-center gap-2 px-4 py-2 rounded-md transition-colors duration-300 ${isActive
-                                            ? "bg-sky-900 text-white"
+                                            ? "bg-[#2f69c8] text-white"
                                             : "hover:bg-sky-100"
                                         }`
                                     }

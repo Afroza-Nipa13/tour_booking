@@ -6,7 +6,7 @@ const TourPromotion = () => {
         <div className="container mx-auto px-2 py-16 font-sans">
             {/* The main container uses a flex layout. It's a column on small screens (default)
           and a row on large screens (lg:flex-row). */}
-            <div className="w-full flex flex-col lg:flex-row items-center bg-white rounded-2xl shadow-xl overflow-hidden p-6 sm:p-10">
+            <div className="w-full flex flex-col lg:flex-row items-center rounded-2xl shadow-xl overflow-hidden p-6 sm:p-10">
 
                 {/* Image Grid Section */}
                 {/* This section takes up the full width on small screens and half the width on large screens. */}
@@ -49,12 +49,12 @@ const TourPromotion = () => {
                     <h2 className="text-3xl font-medium uppercase divider text-sky-800 mb-8">
                         Unforgettable <br />Adventures Await
                     </h2>
-                    <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+                    <p className="text-gray-500 text-lg mb-6 leading-relaxed">
                         Discover our exclusive "Grand European Tour" package, a 14-day journey through the most iconic cities in Europe. Immerse yourself in history, art, and breathtaking landscapes as you explore Paris, Rome, and Venice. This all-inclusive plan handles everything from flights and luxury accommodations to guided tours and authentic local experiences, ensuring a seamless and memorable trip.
                     </p>
                     <Link to='/all-packages'>
                         <button
-                            className="self-center lg:self-start px-8 py-3 bg-sky-600 text-white font-bold text-base rounded-full shadow-lg hover:bg-sky-700 transition-colors duration-300 ease-in-out transform hover:-translate-y-1"
+                            className="self-center cursor-pointer lg:self-start px-8 py-3 bg-sky-600 text-white font-bold text-base rounded-full shadow-lg hover:bg-sky-700 transition-colors duration-300 ease-in-out transform hover:-translate-y-1"
                         >
                             Explore Tour Plans
                         </button>

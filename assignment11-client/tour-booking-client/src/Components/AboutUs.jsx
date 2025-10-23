@@ -8,12 +8,12 @@ import { Helmet } from 'react-helmet-async';
 import { FaArrowUp } from 'react-icons/fa6';
 
 const AboutUs = () => {
-    const handleScrollToUp=()=>{
-  window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-}
+     const handleScrollToUp = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
     return (
         <div>
             <Helmet>
@@ -61,10 +61,12 @@ const AboutUs = () => {
                     <SeeTheWorld />
                     <WhatWillGet />
 
-                    <div className='flex justify-end mx-10 my-10'>
-                    <button onClick={handleScrollToUp} className='btn text-white rounded-full size-12 bg-radial-[at_25%_25%] from-sky-200 via-blue-400 to-indigo-900 to-90%'><FaArrowUp /></button>
+                    
+                    <div className='fixed bottom-10 right-10 z-50'>
+                                    <button onClick={handleScrollToUp} className='btn border-none shadow size-12btn text-white rounded-full size-12 bg-radial-[at_25%_25%] from-sky-200 via-sky-500 to-sky-900 to-90% hover:bg-sky-700 transition-colors duration-300'><FaArrowUp /></button>
+                                </div>
                 </div>
-                </div>
+               
                 
             </div>
             <Footer />

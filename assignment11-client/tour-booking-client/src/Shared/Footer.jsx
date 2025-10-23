@@ -4,7 +4,7 @@ import logo from '../assets/logo.png'
 
 const Footer = () => {
   return (
-    <footer className="md:pt-20 mx-auto bg-linear-65 from-base-content to-info-content text-success rounded p-10">
+    <footer className="md:pt-20 mx-auto bg-linear-65 from-base-content to-info-content text-sky-600 rounded p-10">
       <div className='flex md:flex-row flex-col justify-between '>
         <nav className=''>
           <Link to="/">

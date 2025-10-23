@@ -48,7 +48,7 @@ const SignIn = () => {
 
   }
   return (
-    <div className='md:flex md:flex-raw justify-center bg-gray-50 gap-5 items-center mx-auto'>
+    <div className='md:flex md:flex-raw justify-center  gap-5 items-center mx-auto'>
       <Helmet>
         <title>Zahaba | Sign In</title>
       </Helmet>

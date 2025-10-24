@@ -16,9 +16,9 @@ const OurClients = () => {
                                             transition={{ duration: 0.8 }}
                                             className="text-4xl md:text-5xl font-bold text-sky-800 mb-8 divider"
                                         >
-          our happy clients
+          Our happy clients
         </motion.h2>
-        <p className="text-base md:text-lg">
+        <p className="text-base md:text-lg dancing-script italic font-bold">
           What Our Happy Clients Are Saying
         </p>
       </div>

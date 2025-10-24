@@ -108,7 +108,7 @@ const PopularDestination = () => {
                     initial={{ opacity: 0, y: -30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="text-lg font-semibold text-gray-600 mb-2"
+                    className="text-4xl dancing-script italic font-bold text-gray-600 mb-2"
                 >
                     Beautiful Bangladesh
                 </motion.h3>

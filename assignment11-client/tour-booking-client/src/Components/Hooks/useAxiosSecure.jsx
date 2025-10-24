@@ -3,7 +3,7 @@ import React from 'react';
 import useAuth from './useAuth';
 // http://localhost:3000
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:3000'
+    baseURL: 'https://tour-booking-server-five.vercel.app'
 })
 
 const useAxiosSecure = () => {

@@ -19,7 +19,7 @@ const AddPackage = () => {
     // console.log(newData)
 
     // save job to the database
-    axios.post('http://localhost:3000/all-packages', newData)
+    axios.post('https://tour-booking-server-five.vercel.app/all-packages', newData)
       .then(res => {
         // console.log(res)
         if (res.data.insertedId) {

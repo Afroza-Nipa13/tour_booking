@@ -18,7 +18,7 @@ const Home = () => {
 const [allpackages, setAllPackages] = useState([]);
 
 useEffect(()=>{
-fetch("http://localhost:3000/getSixPackages").then(res=>res.json())
+fetch("https://tour-booking-server-five.vercel.app/getSixPackages").then(res=>res.json())
 .then(data=>{
   // console.log(data)
   setAllPackages(data)

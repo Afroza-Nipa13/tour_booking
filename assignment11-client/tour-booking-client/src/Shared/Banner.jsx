@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { motion } from "framer-motion"
 import Lottie from 'lottie-react';
 import videoBg from "../assets/bannerVideo/bannerVideo.mp4"
+import { FaArrowRight } from 'react-icons/fa';
 
 
 const Banner = () => {
@@ -39,6 +40,23 @@ const Banner = () => {
           >
             Explore more
           </Link>
+          <motion.button
+
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0 10px 25px -5px rgba(59, 130, 246, 0.4)"
+            }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-4 bg-gradient-to-r from-blue-600 to-teal-600 text-white font-semibold rounded-xl flex items-center gap-3 group mx-auto"
+          >
+            View All Destinations
+            <motion.span
+              animate={{ x: [0, 5, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
+              <FaArrowRight />
+            </motion.span>
+          </motion.button>
 
 
         </div>

@@ -6,6 +6,9 @@ import {  RouterProvider } from 'react-router'
 import AuthProvider from './contexts/AuthProvider.jsx'
 import router from './Router.jsx'
 import { HelmetProvider } from 'react-helmet-async'
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 
 

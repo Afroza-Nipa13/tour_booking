@@ -12,13 +12,14 @@ import TermsAndCondition from '../Pages/TermsAndCondition';
 import PrivacyPolicy from '../Pages/PrivacyPolicy';
 import TourPromotion from '../Shared/TourPromotion';
 import PopularDestination from '../Shared/PopularDestination';
+import HotelsSection from './HotelSection';
 
 
 const Home = () => {
 const [allpackages, setAllPackages] = useState([]);
 
 useEffect(()=>{
-fetch("https://tour-booking-server-five.vercel.app/getSixPackages").then(res=>res.json())
+fetch("http://localhost:3000/getSixPackages").then(res=>res.json())
 .then(data=>{
   // console.log(data)
   setAllPackages(data)
@@ -52,6 +53,9 @@ return (
           </div>
           <div>
             <Offers></Offers>
+          </div>
+          <div>
+            <HotelsSection/>
           </div>
           <div>
             <PrivacyPolicy/>

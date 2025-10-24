@@ -14,7 +14,7 @@ const Allpackages = () => {
     useEffect(() => {
         if (searchText) {
             setLoading(true)
-            fetch(`https://tour-booking-server-five.vercel.app/all-packages?search=${searchText}`).then(res => res.json())
+            fetch(`http://localhost:3000/all-packages?search=${searchText}`).then(res => res.json())
                 .then(data => {
 
                     setPackages(data)
@@ -23,7 +23,7 @@ const Allpackages = () => {
                 )
         } else {
             setLoading(true)
-            fetch('https://tour-booking-server-five.vercel.app/all-packages').then(res => res.json())
+            fetch('http://localhost:3000/all-packages').then(res => res.json())
                 .then(data => {
 
                     setPackages(data)

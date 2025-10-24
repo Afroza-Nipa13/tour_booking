@@ -1,0 +1,143 @@
+[
+  {
+    "name": "Seaside Paradise Resort",
+    "destination": "Maldives",
+    "description": "A luxurious beachside resort with private villas, infinity pools, and breathtaking ocean views.",
+    "price_per_night": 450,
+    "rating": 4.8,
+    "amenities": [
+      "Private beach access",
+      "Free WiFi",
+      "Infinity pool",
+      "Spa & wellness center",
+      "Airport shuttle"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGhvdGVsfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=400",
+      "https://plus.unsplash.com/premium_photo-1661964071015-d97428970584?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aG90ZWx8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=400"
+    ],
+    "contact_email": "info@seasideparadise.com",
+    "contact_phone": "+960 334 1122",
+    "location": {
+      "city": "Male",
+      "country": "Maldives"
+    },
+    "reviews_count": 324,
+    "available_rooms": 12,
+    "featured": true,
+    "map_link": "https://goo.gl/maps/abc123",
+    "details": "Seaside Paradise Resort offers overwater villas, fine dining restaurants, and water sports. Perfect for honeymoons or luxury getaways."
+  },
+  {
+    "name": "Mountain Escape Lodge",
+    "destination": "Nepal",
+    "description": "Nestled in the Himalayas, this eco-lodge provides a peaceful escape with panoramic mountain views.",
+    "price_per_night": 180,
+    "rating": 4.6,
+    "amenities": [
+      "Mountain view rooms",
+      "Free breakfast",
+      "Trekking guide services",
+      "Fireplace lounge"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aG90ZWx8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=400",
+      "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aG90ZWx8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=400"
+    ],
+    "contact_email": "reservations@mountainescape.com",
+    "contact_phone": "+977 1 445 8890",
+    "location": {
+      "city": "Pokhara",
+      "country": "Nepal"
+    },
+    "reviews_count": 210,
+    "available_rooms": 8,
+    "featured": false,
+    "map_link": "https://goo.gl/maps/xyz456",
+    "details": "Located near the Annapurna trail, the lodge offers yoga sessions, organic meals, and guided hikes."
+  },
+  {
+    "name": "Safari View Camp",
+    "destination": "Kenya",
+    "description": "Experience the African wilderness in luxury tents overlooking the Maasai Mara National Reserve.",
+    "price_per_night": 300,
+    "rating": 4.7,
+    "amenities": [
+      "Safari tours",
+      "All-inclusive meals",
+      "Campfire evenings",
+      "Wildlife viewing deck"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGhvdGVsfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=400",
+      "https://plus.unsplash.com/premium_photo-1687960116497-0dc41e1808a2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGhvdGVsfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=400"
+    ],
+    "contact_email": "book@safariview.com",
+    "contact_phone": "+254 722 667788",
+    "location": {
+      "city": "Narok",
+      "country": "Kenya"
+    },
+    "reviews_count": 278,
+    "available_rooms": 10,
+    "featured": true,
+    "map_link": "https://goo.gl/maps/safari987",
+    "details": "Safari View Camp provides a once-in-a-lifetime wildlife experience with guided tours, fine dining, and cultural Maasai activities."
+  },
+  {
+    "name": "Tropical Garden Retreat",
+    "destination": "Bali",
+    "description": "A cozy retreat surrounded by lush gardens and rice terraces, ideal for relaxation and yoga.",
+    "price_per_night": 150,
+    "rating": 4.4,
+    "amenities": [
+      "Outdoor pool",
+      "Yoga studio",
+      "Spa treatments",
+      "Restaurant with local cuisine"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fGhvdGVsfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=400",
+      "https://images.unsplash.com/photo-1596701062351-8c2c14d1fdd0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fGhvdGVsfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=400"
+    ],
+    "contact_email": "hello@tropicalretreatbali.com",
+    "contact_phone": "+62 812 3456 7890",
+    "location": {
+      "city": "Ubud",
+      "country": "Indonesia"
+    },
+    "reviews_count": 145,
+    "available_rooms": 6,
+    "featured": false,
+    "map_link": "https://goo.gl/maps/bali123",
+    "details": "Located near Ubud’s famous Monkey Forest, the retreat offers daily yoga classes, spa packages, and traditional Balinese meals."
+  },
+  {
+    "name": "Desert Mirage Camp",
+    "destination": "Morocco",
+    "description": "Sleep under the stars in the Sahara Desert in beautifully decorated Berber tents with modern comfort.",
+    "price_per_night": 220,
+    "rating": 4.9,
+    "amenities": [
+      "Camel rides",
+      "Traditional music nights",
+      "Desert sunrise tours",
+      "Private tents with AC"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzV8fGhvdGVsfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=400",
+      "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fGhvdGVsfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=400"
+    ],
+    "contact_email": "contact@desertmirage.com",
+    "contact_phone": "+212 600 123456",
+    "location": {
+      "city": "Merzouga",
+      "country": "Morocco"
+    },
+    "reviews_count": 198,
+    "available_rooms": 14,
+    "featured": true,
+    "map_link": "https://goo.gl/maps/morocco987",
+    "details": "Enjoy Moroccan cuisine, stargazing, and 4x4 desert adventures at this luxury desert camp."
+  }
+]

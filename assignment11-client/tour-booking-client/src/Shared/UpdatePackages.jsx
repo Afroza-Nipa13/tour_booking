@@ -19,7 +19,7 @@ const UpdatePackages = () => {
     const updatedPackage = Object.fromEntries(formData.entries())
     // console.log(updatedPackage)
 
-    axios.put(`https://tour-booking-server-five.vercel.app/all-packages/${_id}`, updatedPackage).then(res => {
+    axios.put(`http://localhost:3000/all-packages/${_id}`, updatedPackage).then(res => {
       // console.log(res.data)
       if (res.data.modifiedCount) {
         Swal.fire({

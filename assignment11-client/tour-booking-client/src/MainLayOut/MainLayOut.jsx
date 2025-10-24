@@ -1,14 +1,12 @@
-
-import { useEffect, useState } from "react";
-import Navbar from "../Components/Navbar";
-import { Outlet } from "react-router";
-import Footer from "../Shared/Footer";
-import { FaArrowUp, FaArrowDown } from "react-icons/fa";
-import { motion, AnimatePresence } from "framer-motion";
-
+import { useEffect, useState } from 'react';
+import Navbar from '../Components/Navbar';
+import { Outlet } from 'react-router';
+import Footer from '../Shared/Footer';
+import { FaArrowUp, FaArrowDown } from 'react-icons/fa';
+import { motion } from "framer-motion"
 const MainLayOut = () => {
-    const [showUp, setShowUp] = useState(false);
-    const [showDown, setShowDown] = useState(true);
+    const [showScrollUp, setShowScrollUp] = useState(false);
+    const [showScrollDown, setShowScrollDown] = useState(true);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -16,88 +14,81 @@ const MainLayOut = () => {
             const scrollHeight = document.body.scrollHeight;
             const windowHeight = window.innerHeight;
 
-            // At top → only show down
-            if (scrollY < 100) {
-                setShowDown(true);
-                setShowUp(false);
-            }
-            // At bottom → only show up
-            else if (scrollY + windowHeight >= scrollHeight - 100) {
-                setShowDown(false);
-                setShowUp(true);
-            }
-            // In the middle → show both
-            else {
-                setShowDown(true);
-                setShowUp(true);
-            }
+
+            const distanceFromBottom = scrollHeight - (scrollY + windowHeight);
+
+
+            setShowScrollDown(scrollY < 100 ? false : distanceFromBottom > 400);
+
+
+            setShowScrollUp(scrollY > 100);
+
+
         };
 
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     const handleScrollToUp = () => {
         window.scrollTo({
             top: 0,
-            behavior: "smooth",
+            behavior: "smooth"
         });
     };
 
     const handleScrollToDown = () => {
+        // Scroll down one screen height for a "smooth step" effect
         window.scrollTo({
-            top: window.innerHeight,
-            behavior: "smooth",
+            top: window.scrollY + window.innerHeight,
+            behavior: "smooth"
         });
     };
 
     return (
         <div className="mx-auto relative overflow-hidden">
             <Navbar />
-
             <div className="mx-auto md:min-h-screen">
                 <Outlet />
             </div>
 
-            {/* Scroll Buttons */}
-            <div className="fixed bottom-10 right-10 z-50 flex justify-center items-center gap-3">
-                <AnimatePresence>
-                    {showDown && (
-                        <motion.button
-                            key="scroll-down"
-                            onClick={handleScrollToDown}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 20 }}
-                            transition={{ duration: 0.3 }}
-                            className="flex items-center justify-center rounded-full shadow text-white 
-                   lg:w-12 lg:h-12 w-8 h-8 
-                   bg-gradient-to-b from-sky-300 via-sky-500 to-sky-800 
-                   hover:brightness-110 transition-all duration-300"
-                        >
-                            <FaArrowDown className="lg:text-xl text-xs" />
-                        </motion.button>
-                    )}
 
-                    {showUp && (
-                        <motion.button
-                            key="scroll-up"
-                            onClick={handleScrollToUp}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 20 }}
-                            transition={{ duration: 0.3 }}
-                            className="flex items-center justify-center rounded-full shadow text-white 
-                   lg:w-12 lg:h-12 w-8 h-8 
-                   bg-gradient-to-t from-sky-300 via-sky-500 to-sky-800 
-                   hover:brightness-110 transition-all duration-300"
+            <div className="fixed bottom-5 right-5 z-50 flex flex-col gap-2">
+
+
+                {showScrollUp && (
+                    <button
+                        onClick={handleScrollToUp}
+
+                        className="btn border-none  text-blue-900 rounded-full size-10 md:size-12 bg-gradient-to-t from-sky-400 via-sky-100 to-white hover:bg-sky-700 transition-colors duration-300 shadow-2xl"
+                    >
+                        <motion.span
+                            animate={{ y: [0, 5, 0] }}
+                            transition={{ duration: 1.5, repeat: Infinity }}
                         >
-                            <FaArrowUp className="lg:text-xl text-xs" />
-                        </motion.button>
-                    )}
-                </AnimatePresence>
+                            <FaArrowUp />
+                        </motion.span>
+
+
+                    </button>
+                )}
+
+
+                {showScrollDown && (
+                    <button
+                        onClick={handleScrollToDown}
+
+                        className="btn border-none shadow text-white rounded-full size-10 md:size-12 bg-gradient-to-b from-sky-300 via-sky-500 to-sky-900 hover:bg-sky-700 transition-colors duration-300"
+                    ><motion.span
+                        animate={{ y: [0, 5, 0] }}
+                        transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                            <FaArrowDown />
+                        </motion.span>
+
+                    </button>
+                )}
             </div>
-
 
             <footer>
                 <Footer />
@@ -107,4 +98,3 @@ const MainLayOut = () => {
 };
 
 export default MainLayOut;
-

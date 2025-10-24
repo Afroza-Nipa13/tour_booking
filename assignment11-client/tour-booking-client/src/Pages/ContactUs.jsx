@@ -1,27 +1,19 @@
 import React from 'react';
 import GoogleMap from './GoogleMap';
-import Navbar from '../Components/Navbar';
-import Footer from '../Shared/Footer';
+
+
 import { FaPhone, FaUser, FaUserMd } from 'react-icons/fa';
 import { Helmet } from 'react-helmet-async';
 import { FaArrowUp } from 'react-icons/fa6';
 
 const ContactUs = () => {
-    const handleScrollToUp=()=>{
-  window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-}
+   
     return (
-        <div>
+        <div className='mb-12'>
             <Helmet>
                 <title>Zahaba | Contact Us</title>
             </Helmet>
-            <div>
-                <Navbar></Navbar>
-               
-            </div>
+           
             <div className='flex lg:flex-row-reverse flex-col gap-5 mx-auto justify-center items-center lg:w-7xl'>
                 <div className="flex-1 px-4 my-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
 
@@ -71,10 +63,7 @@ const ContactUs = () => {
             </div>
             
              <GoogleMap></GoogleMap>
-            <div className='flex justify-end mx-10 my-5'>
-                    <button onClick={handleScrollToUp} className='btn text-white rounded-full size-12 bg-radial-[at_25%_25%] from-sky-200 via-blue-400 to-indigo-900 to-90%'><FaArrowUp /></button>
-                </div>
-            <Footer></Footer>
+           
         </div>
 
     );

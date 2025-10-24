@@ -24,106 +24,115 @@ import PrivacyPolicy from './Pages/PrivacyPolicy';
 import CookiePolicy from './Pages/CookiePolicy';
 import TourPromotion from './Shared/TourPromotion';
 import GalleryPage from './Shared/GalleryPage';
+import HotelDetails from './Components/HotelDetails';
 // http://localhost:3000/
 // http://localhost:3000
-const router=createBrowserRouter([
-  { path: '/', 
-    errorElement:<Error/>,
-    element: <MainLayOut/>,
-    
-    children:[
-      { path:'/',
-        element:<Home></Home>
+const router = createBrowserRouter([
+  {
+    path: '/',
+    errorElement: <Error />,
+    element: <MainLayOut />,
+
+    children: [
+      {
+        path: '/',
+        element: <Home></Home>
       },
       {
-        path:'/signin', element:<SignIn/>
+        path: '/signin', element: <SignIn />
       },
       {
-        path:'/signup', element:<SignUp/>
+        path: '/signup', element: <SignUp />
       },
       {
-        path:'/addPackage',element: <PrivateRoute>
+        path: '/addPackage', element: <PrivateRoute>
           <AddPackage></AddPackage>
         </PrivateRoute>
       },
       {
-        path:'/all-packages/:id',
-        loader:({params})=>fetch(`https://tour-booking-server-five.vercel.app/all-packages/${params.id}`),
-        element:<PrivateRoute>
+        path: '/all-packages/:id',
+        loader: ({ params }) => fetch(`http://localhost:3000/all-packages/${params.id}`),
+        element: <PrivateRoute>
           <PackageDetails></PackageDetails>
         </PrivateRoute>
-        
-      },
-      {
-        path:'/blogs',
-        element:<Blogs/>
-      },
-      {
-        path:'/all-packages',
-        element:
-          <Allpackages></Allpackages> 
-          
 
       },
       {
-        path:'/terms&condition',
-        element:<TermsAndCondition/>
+        path: '/blogs',
+        element: <Blogs />
       },
       {
-        path:'/privecyPolicy',
-        element:<PrivacyPolicy/>
+        path: '/all-packages',
+        element:
+          <Allpackages></Allpackages>
+
+
       },
       {
-        path: '/gallery', 
-        element: <GalleryPage/>
+        path: '/terms&condition',
+        element: <TermsAndCondition />
       },
       {
-        path: '/gallery/:id', 
-        element: <GalleryPage/>
+        path: '/privecyPolicy',
+        element: <PrivacyPolicy />
       },
       {
-        path:'/cookiePolicy',
-        element:<CookiePolicy/> 
+        path: '/gallery',
+        element: <GalleryPage />
       },
       {
-        path:'/tourPromotion',
-        element:<TourPromotion/>
+        path: '/gallery/:id',
+        element: <GalleryPage />
       },
       {
-        path:'/package/:id',
-        loader: ({params})=>fetch(`https://tour-booking-server-five.vercel.app/package/${params.id}`).then(res=>res.json()),
-        element:<PrivateRoute>
+        path: '/cookiePolicy',
+        element: <CookiePolicy />
+      },
+      {
+        path: '/tourPromotion',
+        element: <TourPromotion />
+      },
+      {
+        path: '/package/:id',
+        loader: ({ params }) => fetch(`http://localhost:3000/package/${params.id}`).then(res => res.json()),
+        element: <PrivateRoute>
           <TourBooking></TourBooking>
         </PrivateRoute>
       }
       ,
       {
-        path:'/myPostedPackages',
-        element:<PrivateRoute>
+        path: '/myPostedPackages',
+        element: <PrivateRoute>
           <MyPostedPackages></MyPostedPackages>
         </PrivateRoute>
       },
       {
-        path:'/updatePackages/:packageId',
-        element:<PrivateRoute>
+        path: '/updatePackages/:packageId',
+        element: <PrivateRoute>
           <UpdatePackages></UpdatePackages>
         </PrivateRoute>,
-        loader:({params})=>fetch(`https://tour-booking-server-five.vercel.app/all-packages/${params.packageId}`)
+        loader: ({ params }) => fetch(`http://localhost:3000/all-packages/${params.packageId}`)
       },
       {
-        path:'/all-package',
-        element:<AllPackage/>
+        path: '/all-package',
+        element: <AllPackage />
       },
-      { path:'/my-bookings',
-        element:<PrivateRoute><MyBookings/> </PrivateRoute>}
-    ]
-  },
-  {
-    path: '/about-us', element: <AboutUs/>
+      {
+        path: '/my-bookings',
+        element: <PrivateRoute><MyBookings /> </PrivateRoute>
+      },
+      {
+        path: '/about-us', element: <AboutUs />
 
-  },
-  {
-    path:'/contact-us', element:<ContactUs/>
+      },
+      {
+        path: '/contact-us', element: <ContactUs />
+      },
+      {
+        path: "/hotel/:id",
+        element: <HotelDetails />,
+      },
+    ]
   }
 ])
 

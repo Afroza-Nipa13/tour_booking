@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import GoogleMap from './GoogleMap';
 
 
 import { FaPhone, FaUser, FaUserMd } from 'react-icons/fa';
 import { Helmet } from 'react-helmet-async';
 import { FaArrowUp } from 'react-icons/fa6';
+import { useLocation } from 'react-router';
 
 const ContactUs = () => {
+    const { pathname } = useLocation();
+    useEffect(() => {
+     window.scrollTo(0, 0);
+},[pathname]);
    
     return (
         <div className='mb-12'>

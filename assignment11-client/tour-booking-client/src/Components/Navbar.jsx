@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../contexts/AuthContext';
 import logo from '/src/assets/logo.png'
@@ -7,7 +7,20 @@ import { FaHome, FaBoxOpen, FaCalendarCheck, FaClipboardList, FaInfoCircle, FaPh
 
 const Navbar = () => {
     const { user, logOutUser } = useContext(AuthContext)
+    const [isScrolled, setIsScrolled] = useState(false);
 
+     useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
 
 
@@ -83,7 +96,12 @@ const Navbar = () => {
 
 
     return (
-        <div className='navbar bg-white/20 backdrop-blur-md opacity-80 lg:px-8 shadow-sm fixed top-0 left-0 z-50'>
+        <div       className={`navbar fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
+        isScrolled
+          ? 'bg-white/95 backdrop-blur-md opacity-80 shadow-md'
+          : 'bg-transparent backdrop-blur-md opacity-90'
+      }`}
+>
             <div className='navbar-start'>
                 <div className='dropdown'>
                     <div tabIndex={0} role='button' className='btn btn-ghost lg:hidden'>

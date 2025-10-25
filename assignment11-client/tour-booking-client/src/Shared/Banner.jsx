@@ -45,7 +45,7 @@ const Banner = () => {
           transition={{ duration: 1 }}
           className="bg-white/40 backdrop-blur-md px-8 py-8 md:px-14 md:py-10 rounded-2xl shadow-xl max-w-3xl"
         >
-          <h1 className="mb-5 text-4xl md:text-5xl text-gray-800 font-semibold">
+          <h1 className="mb-5 text-4xl md:text-5xl text-gray-700 font-semibold">
             <motion.span
               className="dancing-script italic font-bold text-5xl"
               animate={{ y: [0, -4, 0] }}
@@ -77,7 +77,7 @@ const Banner = () => {
             </motion.span>
 
             {/* Rotating tagline */}
-            <div className="h-10 mt-2 overflow-hidden text-gray-800">
+            <div className="h-10 mt-2 overflow-hidden text-gray-900">
               <AnimatePresence mode="wait">
                 <motion.p
                   key={currentTagline}
@@ -93,7 +93,7 @@ const Banner = () => {
             </div>
           </h1>
 
-          <p className="mb-8 text-gray-700 leading-relaxed text-base md:text-lg">
+          <p className="mb-8 text-gray-800 leading-relaxed text-base md:text-lg">
             Zahaba Tours offers a seamless travel experience with customizable
             tour packages, easy bookings, and user-friendly features.
             <br className="hidden md:block" />

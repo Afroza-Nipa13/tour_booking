@@ -102,7 +102,7 @@ const PopularDestination = () => {
     };
 
     return (
-        <section className="relative w-full mx-auto py-20 bg-blue-100/60 backdrop-blur-sm">
+        <section className="relative w-full mx-auto py-20 px-10">
             <div className="px-10 text-center">
                 <motion.h3
                     initial={{ opacity: 0, y: -30 }}
@@ -139,7 +139,7 @@ const PopularDestination = () => {
                                 alt={destinations[0].title}
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-6">
+                            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-6">
                                 <div className="text-white text-left">
                                     <h4 className="text-xl font-bold">{destinations[0].title}</h4>
                                     <p className="text-blue-200">{destinations[0].location}</p>

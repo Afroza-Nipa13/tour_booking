@@ -6,10 +6,15 @@ import PackageBanner from './PackageBanner';
 import Loader from '../../Pages/Loader';
 import { FaArrowUp } from 'react-icons/fa';
 import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router';
 const Allpackages = () => {
     const [loading, setLoading] = useState(true)
     const [searchText, setSearchText] = useState("");
     const [packages, setPackages] = useState([])
+    const { pathname } = useLocation();
+    useEffect(() => {
+     window.scrollTo(0, 0);
+},[pathname]);
 
     useEffect(() => {
         if (searchText) {
@@ -32,8 +37,8 @@ const Allpackages = () => {
                 )
 
         }
-
-    }, [searchText])
+    window.scrollTo(0, 0);
+    }, [searchText,pathname])
 
     
     return (

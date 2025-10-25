@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { motion } from "framer-motion"
 
@@ -6,8 +6,13 @@ import SeeTheWorld from '../Pages/SeeTheWorld';
 import WhatWillGet from '../Pages/WhatWillGet';
 import { Helmet } from 'react-helmet-async';
 import { FaArrowUp } from 'react-icons/fa6';
+import { useLocation } from 'react-router';
 
 const AboutUs = () => {
+    const { pathname } = useLocation();
+    useEffect(() => {
+     window.scrollTo(0, 0);
+},[pathname]);
      
     return (
         <div>

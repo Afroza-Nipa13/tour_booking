@@ -4,66 +4,94 @@ import { FaArrowRightLong } from 'react-icons/fa6';
 import { useNavigate } from 'react-router';
 import EmptyPage from '../Shared/EmptyPage';
 
-// const AllPackage = ({ allPackages }) => {
-//   const [packages, setPackages] = useState(allPackages || []);
-
-//   useEffect(() => {
-//     if (!allPackages) {
-//       fetch('/api/packages')
-//         .then(res => res.json())
-//         .then(data => setPackages(data));
-//     }
-//   }, [allPackages]);
-
-//   const sixPackages = packages.slice(0, 6);
-
-//   return (
-//     <div>
-//       {sixPackages.map(pkg => (
-//         <PackageCard key={pkg._id} tourPack={pkg} />
-//       ))}
-//     </div>
-//   );
-// };
-
 const AllPackage = ({ allPackages }) => {
-    const sixPackages = allPackages;
-    // console.log(sixPackages)
+  const navigate = useNavigate();
+  const handleShowAllClick = () => {
+    navigate('/all-packages');
+  };
 
-    const navigate = useNavigate()
-    const handleShowAllClick = () => {
-        navigate('/all-packages')
-    }
-    return (
-        <div className='items-center text-center py-20'>
-            <div className='max-w-xl mb-6 sm:mx-auto sm:text-center md:mb-10 lg:max-w-2xl'>
-                <motion.h2
-                                    initial={{ opacity: 0, y: -20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.8 }}
-                                    className="text-4xl md:text-5xl font-bold text-sky-800 mb-8 divider"
-                                >Our Hot Packages</motion.h2>
-            </div>
+  return (
+    <section className="relative py-20 overflow-hidden">
+      {/* Decorative background shapes */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.2 }}
+        transition={{ duration: 2 }}
+        className="absolute top-0 left-0 w-40 h-40  rounded-full blur-3xl"
+      ></motion.div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.15 }}
+        transition={{ duration: 2, delay: 0.5 }}
+        className="absolute bottom-10 right-10 w-56 h-56 bg-blue-300 rounded-full blur-3xl"
+      ></motion.div>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 py-10'>
-                {sixPackages && sixPackages.length > 0 ? (
-                    sixPackages.map(tourPack => (
-                        <PackageCard tourPack={tourPack} key={tourPack._id} />
-                    ))
-                ) : (
-                   <EmptyPage/>
-                )}
-            </div>
+      {/* Content */}
+      <div className="relative z-10 text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl md:text-5xl font-bold divider lg:w-4xl mx-auto text-sky-800 mb-10"
+        >
+          Our <span className="">Hot Packages</span>
+        </motion.h2>
+        <p className="max-w-2xl mx-auto text-gray-600 mb-12">
+          Explore our most popular travel packages — handpicked destinations, unforgettable experiences, and exclusive deals crafted just for you.
+        </p>
 
-            <button
-                onClick={
-                    handleShowAllClick
-                }
-                className='btn btn-outline text-sky-600 hover:bg-sky-600 hover:text-white '> Show All<FaArrowRightLong /></button>
+        {/* Packages Grid */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            hidden: { opacity: 0, y: 40 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { staggerChildren: 0.15, duration: 0.5 },
+            },
+          }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-6 md:px-12 lg:px-20"
+        >
+          {allPackages && allPackages.length > 0 ? (
+            allPackages.map((tourPack) => (
+              <motion.div
+                key={tourPack._id}
+                whileHover={{ scale: 1.03 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <PackageCard tourPack={tourPack} />
+              </motion.div>
+            ))
+          ) : (
+            <EmptyPage />
+          )}
+        </motion.div>
 
-
-        </div>
-    );
+        {/* Show All Button */}
+        <motion.button
+          onClick={handleShowAllClick}
+          whileHover={{
+            scale: 1.05,
+            background: "linear-gradient(to right, #0284c7, #14b8a6)",
+            color: "#fff",
+          }}
+          transition={{ type: "spring", stiffness: 200 }}
+          className="mt-12 px-8 py-3 text-sky-700 border border-sky-600 font-semibold rounded-full flex items-center gap-2 mx-auto hover:text-white hover:shadow-lg group transition-all duration-300"
+        >
+          Show All
+          <motion.span
+            className="text-lg"
+            animate={{ x: [0, 5, 0] }}
+            transition={{ duration: 1.2, repeat: Infinity }}
+          >
+            <FaArrowRightLong />
+          </motion.span>
+        </motion.button>
+      </div>
+    </section>
+  );
 };
 
 export default AllPackage;

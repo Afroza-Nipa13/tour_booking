@@ -13,10 +13,16 @@ import PrivacyPolicy from '../Pages/PrivacyPolicy';
 import TourPromotion from '../Shared/TourPromotion';
 import PopularDestination from '../Shared/PopularDestination';
 import HotelsSection from './HotelSection';
+import { useLocation } from 'react-router';
 
 
 const Home = () => {
 const [allpackages, setAllPackages] = useState([]);
+const { pathname } = useLocation();
+
+// useEffect(() => {
+//     window.scrollTo(0, 0);
+// },[pathname]);
 
 useEffect(()=>{
 fetch("http://localhost:3000/getSixPackages").then(res=>res.json())
@@ -24,7 +30,9 @@ fetch("http://localhost:3000/getSixPackages").then(res=>res.json())
   // console.log(data)
   setAllPackages(data)
 })
-},[])
+
+ window.scrollTo(0, 0);
+},[pathname])
 
 
  
@@ -35,7 +43,7 @@ return (
                 <title>Zahaba| Home</title>
             </Helmet>
           <Banner></Banner>
-          <div className='max-w-11/12 mx-auto my-10'>
+          <div className='mx-auto my-10'>
             <Suspense fallback={<Loader></Loader>}>
             <AllPackage allPackages={allpackages}></AllPackage>
           </Suspense>

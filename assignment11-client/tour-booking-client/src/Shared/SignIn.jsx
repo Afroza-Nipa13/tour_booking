@@ -48,15 +48,16 @@ const SignIn = () => {
 
   }
   return (
-    <div className='md:flex md:flex-raw justify-center bg-base-200  gap-5 items-center mx-auto'>
+    <div className='min-h-screen md:flex md:flex-raw bg-base-200  justify-center items-center mx-auto pt-8'>
       <Helmet>
         <title>Zahaba | Sign In</title>
       </Helmet>
-      <div className='my-12'>
+      <div className=''>
         <Lottie animationData={signin} loop={true} style={{ width: "300px", height: "300px" }}></Lottie>
       </div>
       <div className='card bg-base-100 w-full md:w-sm shadow-2xl my-12'>
-        <div className='card-body'>
+        <div className='card w-full max-w-sm rounded-2xl shadow-xl mt-8'>
+          <div className='card-body bg-base-100 overlay 80% p-8 rounded-2xl'>
           <h1 className='text-3xl font-bold'> Sign In  <span className='text-[#0f65bb]'>now </span> !</h1>
 
           <form onSubmit={handleSignIn} className='fieldset'>
@@ -80,6 +81,7 @@ const SignIn = () => {
             <button type='submit' className='btn btn-neutral mt-4 bg-[#0f65bb] text-base-100 border-none'>Sign in</button>
           </form>
           <SocialLogin></SocialLogin>
+        </div>
         </div>
       </div>
       <ToastContainer

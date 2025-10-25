@@ -58,7 +58,7 @@ const TourBooking = () => {
 
     }, [])
     return (
-        <div>
+        <div className='mt-22 px-5'>
             <Helmet>
                 <title>Zahaba| Bookings</title>
             </Helmet>
@@ -73,7 +73,7 @@ const TourBooking = () => {
                     onSubmit={handleBooking}
                     className='mx-auto lg:w-[50%] items-center text-center'>
                     <fieldset className="fieldset mx-auto  bg-sky-100 border-sky-300 rounded-box border p-4">
-                        <legend className="fieldset-legend">Page details</legend>
+                        <legend className="fieldset-legend text-3xl">Page details</legend>
 
                         <label className="label">Tour Package Name</label>
                         <input type="text" defaultValue={data.tour_name}  className="input w-full" placeholder="My awesome page" readOnly />

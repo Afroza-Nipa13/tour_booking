@@ -11,15 +11,15 @@ import { useLocation } from 'react-router';
 const AboutUs = () => {
     const { pathname } = useLocation();
     useEffect(() => {
-     window.scrollTo(0, 0);
-},[pathname]);
-     
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
     return (
         <div>
             <Helmet>
                 <title>Zahaba | About Us</title>
             </Helmet>
-            
+
             <div className='my-10'>
 
             </div>
@@ -33,8 +33,8 @@ const AboutUs = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
                         <motion.div
-                            whileHover={{ scale: 1.2 }}
-                            whileTap={{ scale: 0.8 }}
+                            whileHover={{ scale: 1.2, y: -5 }}
+                            transition={{ type: 'spring', stiffness: 90, damping: 20 }}
                             className="bg-sky-800 text-gray-100 p-6 rounded-2xl shadow">
                             <img src="https://cdn-icons-png.flaticon.com/128/684/684908.png" className="w-12 mx-auto mb-4" alt="" />
                             <h3 className="text-xl font-semibold">Our Mission</h3>
@@ -42,8 +42,8 @@ const AboutUs = () => {
                         </motion.div>
 
                         <motion.div
-                            whileHover={{ scale: 1.2 }}
-                            whileTap={{ scale: 0.8 }}
+                            whileHover={{ scale: 1.2, y: -5 }}
+                            transition={{ type: 'spring', stiffness: 90, damping: 20 }}
                             className="bg-base-200 p-6 rounded-2xl shadow">
                             <img src="https://cdn-icons-png.flaticon.com/128/3135/3135715.png" className="w-12 mx-auto mb-4" alt="" />
                             <h3 className="text-xl font-semibold">Our Team</h3>
@@ -51,8 +51,9 @@ const AboutUs = () => {
                         </motion.div>
 
                         <motion.div
-                            whileHover={{ scale: 1.2 }}
-                            whileTap={{ scale: 0.8 }} className="bg-sky-800 text-gray-100 p-6 rounded-2xl shadow">
+                           whileHover={{ scale: 1.2, y: -5 }}
+                            transition={{ type: 'spring', stiffness: 90, damping: 20 }}
+                             className="bg-sky-800 text-gray-100 p-6 rounded-2xl shadow">
                             <img src="https://cdn-icons-png.flaticon.com/128/3468/3468370.png" className="w-12 mx-auto mb-4" alt="" />
                             <h3 className="text-xl font-semibold">Why Choose Us?</h3>
                             <p className="text-gray-300">Trusted by 1000+ travelers, our tours are designed for comfort, fun, and lifelong memories.</p>
@@ -61,13 +62,13 @@ const AboutUs = () => {
                     <SeeTheWorld />
                     <WhatWillGet />
 
-                    
-                    
+
+
                 </div>
-               
-                
+
+
             </div>
-            
+
 
         </div>
     );

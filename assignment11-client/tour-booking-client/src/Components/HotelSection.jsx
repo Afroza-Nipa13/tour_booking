@@ -10,7 +10,7 @@ const HotelsSection = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch("http://localhost:3000/hotels")
+        fetch("https://tour-booking-server-five.vercel.app/hotels")
             .then((res) => res.json())
             .then((data) => setHotels(data))
             .catch((err) => console.error(err));

@@ -11,8 +11,8 @@ const BookingList = ({myBookingsPromise}) => {
           Your Bookings</h2>
             <h3 className='text-2xl lg:mb-20 md:mb-10'> Total <span className='text-red-500 font-bold'>{myBookings.length}</span> bookings</h3>
             <div>
-                <div className="overflow-x-auto w-full ">
-  <table className="table table-zebra text-sm md:text-base">
+                <div className="overflow-x-auto mx-auto w-full ">
+  <table className="table table-zebra mx-9 text-sm md:text-base">
     {/* head */}
     <thead>
       <tr>

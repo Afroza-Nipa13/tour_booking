@@ -96,7 +96,7 @@ const Navbar = () => {
 
 
     return (
-        <div       className={`navbar fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
+        <div       className={`navbar lg:px-12 fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
         isScrolled
           ? 'bg-white/95 backdrop-blur-md opacity-80 shadow-md'
           : 'bg-transparent backdrop-blur-md opacity-90'
@@ -226,12 +226,12 @@ const Navbar = () => {
 
                                         <div className='dropdown dropdown-end'>
                                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                                <div className='w-10 rounded-full'>
+                                                <div className='w-10 h-10 rounded-full'>
                                                     <img
                                                         src={user.photoURL}
                                                         referrerPolicy='no-referrer'
                                                         alt='avatar'
-                                                        className='w-8 rounded-full hidden md:flex'
+                                                        className='w-full h-full p-0.5 rounded-full hidden md:flex'
                                                     />
                                                 </div>
 

@@ -9,7 +9,7 @@ const HotelDetails = () => {
   const [mainImage, setMainImage] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:3000/hotels/${id}`)
+    fetch(`https://tour-booking-server-five.vercel.app/hotels/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setHotel(data);
@@ -26,18 +26,18 @@ const HotelDetails = () => {
     );
   }
   const handleBooking=()=>{
- Swal.fire({
+  Swal.fire({
                   title: "Booking Confirmed! 🎉",
                   text: `Your stay at ${hotel.name} has been successfully booked.`,
                   icon: "success",
                   confirmButtonText: "Awesome!",
-                  confirmButtonColor: "#0284c7", // Tailwind sky-600
+                  confirmButtonColor: "#0284c7", 
                   background: "#f0f9ff",
                 });
   }
 
   return (
-    <div className="max-w-6xl mx-auto py-16 px-4 md:px-8">
+    <div className="max-w-7xl mx-auto py-20 px-4 md:px-8">
       {/* Header */}
       <motion.h1
         initial={{ opacity: 0, y: -30 }}

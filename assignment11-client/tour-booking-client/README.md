@@ -5,7 +5,7 @@ Zahaba Tours is a full-featured MERN stack tour package booking platform that al
 ## 🚀 Live Site
 
 🔗 [Live Website](https://tour-booking-client.web.app/)  
-🔗 [Live Server](http://localhost:3000/)
+🔗 [Live Server](https://tour-booking-server-five.vercel.app/)
 
 ---
 

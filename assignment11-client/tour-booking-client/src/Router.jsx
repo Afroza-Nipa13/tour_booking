@@ -25,8 +25,8 @@ import CookiePolicy from './Pages/CookiePolicy';
 import TourPromotion from './Shared/TourPromotion';
 import GalleryPage from './Shared/GalleryPage';
 import HotelDetails from './Components/HotelDetails';
-// http://localhost:3000/
-// http://localhost:3000
+// https://tour-booking-server-five.vercel.app/
+// https://tour-booking-server-five.vercel.app
 const router = createBrowserRouter([
   {
     path: '/',
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/all-packages/:id',
-        loader: ({ params }) => fetch(`http://localhost:3000/all-packages/${params.id}`),
+        loader: ({ params }) => fetch(`https://tour-booking-server-five.vercel.app/all-packages/${params.id}`),
         element: <PrivateRoute>
           <PackageDetails></PackageDetails>
         </PrivateRoute>
@@ -94,7 +94,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/package/:id',
-        loader: ({ params }) => fetch(`http://localhost:3000/package/${params.id}`).then(res => res.json()),
+        loader: ({ params }) => fetch(`https://tour-booking-server-five.vercel.app/package/${params.id}`).then(res => res.json()),
         element: <PrivateRoute>
           <TourBooking></TourBooking>
         </PrivateRoute>
@@ -111,7 +111,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <UpdatePackages></UpdatePackages>
         </PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:3000/all-packages/${params.packageId}`)
+        loader: ({ params }) => fetch(`https://tour-booking-server-five.vercel.app/all-packages/${params.packageId}`)
       },
       {
         path: '/all-package',

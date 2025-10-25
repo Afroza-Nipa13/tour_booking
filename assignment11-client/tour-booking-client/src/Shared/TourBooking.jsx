@@ -33,7 +33,7 @@ const TourBooking = () => {
 
 
         // save to the database
-        axios.post('http://localhost:3000/bookings', tourist).then(res => {
+        axios.post('https://tour-booking-server-five.vercel.app/bookings', tourist).then(res => {
             if (res.data.insertedId) {
                 Swal.fire({
                     position: "top-end",

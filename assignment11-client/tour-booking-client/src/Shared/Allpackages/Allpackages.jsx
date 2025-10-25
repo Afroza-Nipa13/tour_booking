@@ -16,10 +16,11 @@ const Allpackages = () => {
      window.scrollTo(0, 0);
 },[pathname]);
 
+// https://tour-booking-server-five.vercel.app
     useEffect(() => {
         if (searchText) {
             setLoading(true)
-            fetch(`http://localhost:3000/all-packages?search=${searchText}`).then(res => res.json())
+            fetch(`https://tour-booking-server-five.vercel.app/all-packages?search=${searchText}`).then(res => res.json())
                 .then(data => {
 
                     setPackages(data)
@@ -28,7 +29,7 @@ const Allpackages = () => {
                 )
         } else {
             setLoading(true)
-            fetch('http://localhost:3000/all-packages').then(res => res.json())
+            fetch('https://tour-booking-server-five.vercel.app/all-packages').then(res => res.json())
                 .then(data => {
 
                     setPackages(data)

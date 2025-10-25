@@ -21,7 +21,7 @@ const MyPostedPackageList = ({ packageCreatedByPromise }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         // delete from database
-        axios.delete(`http://localhost:3000/all-packages/${_id}`).then(res => {
+        axios.delete(`https://tour-booking-server-five.vercel.app/all-packages/${_id}`).then(res => {
           // console.log(res.data)
           if (res.data.deletedCount > 0) {
 

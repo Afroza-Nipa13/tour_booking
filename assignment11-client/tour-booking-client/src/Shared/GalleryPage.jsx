@@ -62,7 +62,7 @@ const GalleryPage = () => {
                 alt={destination.title}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-80 group-hover:opacity-90 transition duration-500 flex items-end p-6">
+              <div className="absolute inset-0 bg-gradient-to-top from-black/70 to-transparent opacity-80 group-hover:opacity-90 transition duration-500 flex items-end p-6">
                 <div className="text-white">
                   <h3 className="text-xl font-bold mb-2">{destination.title}</h3>
                   <div className="flex items-center gap-2 text-blue-200">

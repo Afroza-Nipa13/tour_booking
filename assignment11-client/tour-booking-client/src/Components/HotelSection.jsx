@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { motion } from "framer-motion";
+import HotelCard from "./HotelCard";
 
 const HotelsSection = () => {
     const [hotels, setHotels] = useState([]);
@@ -48,49 +49,11 @@ const HotelsSection = () => {
                 >
                     {hotels.map((hotel) => (
                         <SwiperSlide key={hotel._id}>
-                            <div
-                                onClick={() => navigate(`/hotel/${hotel._id}`)}
-                                className="relative group rounded-3xl overflow-hidden shadow-xl cursor-pointer transition-transform duration-500 hover:scale-[1.03]"
-                            >
-                                {/* Hotel Image */}
-                                <img
-                                    src={hotel.images[0]}
-                                    alt={hotel.name}
-                                    className="w-full h-[420px] object-cover group-hover:brightness-110 transition-all duration-500"
-                                />
-
-                                {/* Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-all duration-500" />
-
-                                {/* Hotel Info */}
-                                <div className="absolute bottom-0 left-0 right-0 p-6 text-left text-white transform translate-y-6 group-hover:translate-y-0 transition-all duration-500">
-                                    <h3 className="text-2xl font-bold mb-1">{hotel.name}</h3>
-                                    <p className="text-sm text-gray-200 mb-3">
-                                        {hotel.destination} • ⭐ {hotel.rating}
-                                    </p>
-                                    <p className="text-gray-300 line-clamp-2 text-sm mb-3">
-                                        {hotel.description}
-                                    </p>
-                                    <div className="flex justify-between items-center">
-                                        <span className="text-lg font-semibold">
-                                            ${hotel.price_per_night}/night
-                                        </span>
-                                        <button className="bg-white/20 backdrop-blur-md border border-white/30 text-white px-4 py-1 rounded-full text-sm hover:bg-white/30 transition-all duration-200">
-                                            View Details
-                                        </button>
-                                    </div>
-                                </div>
-
-                                {/* Featured Badge */}
-                                {hotel.featured && (
-                                    <span className="absolute top-4 left-4 bg-yellow-400 text-gray-900 font-semibold text-xs px-3 py-1 rounded-full shadow">
-                                        Featured
-                                    </span>
-                                )}
-                            </div>
+                            <HotelCard hotel={hotel} />
                         </SwiperSlide>
                     ))}
                 </Swiper>
+
             </div>
         </section>
     );

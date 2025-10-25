@@ -25,11 +25,6 @@ app.use(cors({
 }))
 app.use(express.json())
 
-
-
-
-
-
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@clusterph.bwaiqag.mongodb.net/?retryWrites=true&w=majority&appName=ClusterPH`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -41,13 +36,9 @@ const client = new MongoClient(uri, {
   }
 });
 
-
-
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
-
-
 
 const verifyFirebaseToken = async (req, res, next) => {
   const authHeader = req.headers?.authorization;
@@ -60,14 +51,11 @@ const verifyFirebaseToken = async (req, res, next) => {
   try {
     const decoded = await admin.auth().verifyIdToken(token)
     req.decoded = decoded;
-    console.log("decoded", decoded)
+    // console.log("decoded", decoded)
     next()
   } catch (error) {
     return res.status(401).send({ message: "unauthorized access" })
   }
-
-
-
 }
 
 const verifyTokenEmail = async (req, res, next) => {
@@ -78,15 +66,173 @@ const verifyTokenEmail = async (req, res, next) => {
   next()
 }
 
-
 async function run() {
   try {
     // await client.connect()
 
-
     const packageCollection = client.db('zahabaTour').collection("tourPackages");
     const bookingCollection = client.db('zahabaTour').collection("bookings")
     const hotelCollection = client.db('zahabaTour').collection("hotels")
+    const wishlistCollection = client.db('zahabaTour').collection("wishlists") // New collection
+
+
+
+    // Add package to wishlist
+    app.post('/wishlist', verifyFirebaseToken, async (req, res) => {
+      try {
+        const { packageId, tour_name, duration, departure_date, image, destination, price } = req.body;
+        const userEmail = req.decoded.email;
+        const userId = req.decoded.uid;
+
+        // Check if already in wishlist
+        const existingWishlist = await wishlistCollection.findOne({
+          userEmail,
+          packageId
+        });
+
+        if (existingWishlist) {
+          return res.status(400).json({
+            success: false,
+            message: 'Package already in wishlist'
+          });
+        }
+
+        const wishlistItem = {
+          userEmail,
+          userId,
+          packageId,
+          tour_name,
+          duration,
+          departure_date,
+          image,
+          destination,
+          price,
+          addedAt: new Date()
+        };
+
+        const result = await wishlistCollection.insertOne(wishlistItem);
+        res.json({ success: true, message: 'Added to wishlist', data: result });
+      } catch (error) {
+        console.error('Error adding to wishlist:', error);
+        res.status(500).json({ success: false, error: error.message });
+      }
+    });
+
+    // Remove from wishlist
+    app.delete('/wishlist/:packageId', verifyFirebaseToken, async (req, res) => {
+      try {
+        const { packageId } = req.params;
+        const userEmail = req.decoded.email;
+
+        const result = await wishlistCollection.deleteOne({
+          userEmail: userEmail,
+          packageId: packageId
+        });
+
+        if (result.deletedCount === 0) {
+          return res.status(404).json({
+            success: false,
+            message: 'Item not found in wishlist'
+          });
+        }
+
+        res.json({
+          success: true,
+          message: 'Removed from wishlist'
+        });
+      } catch (error) {
+        console.error('Error removing from wishlist:', error);
+        res.status(500).json({
+          success: false,
+          error: error.message
+        });
+      }
+    });
+
+    // Check if package is in wishlist
+   app.get('/wishlist/check/:packageId', verifyFirebaseToken, async (req, res) => {
+  try {
+    const { packageId } = req.params;
+    const userEmail = req.decoded.email;
+
+    const wishlistItem = await wishlistCollection.findOne({
+      userEmail,
+      packageId
+    });
+
+    res.json({ isInWishlist: !!wishlistItem });
+  } catch (error) {
+    console.error('Error checking wishlist:', error);
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+    // Get user's wishlist
+    app.get('/wishlist', async (req, res) => {
+      try {
+        const userEmail = req.decoded.email;
+
+        const wishlistItems = await wishlistCollection.find({
+          userEmail: userEmail
+        }).sort({ addedAt: -1 }).toArray();
+
+        // Get full package details for each wishlist item
+        const wishlistWithDetails = await Promise.all(
+          wishlistItems.map(async (item) => {
+            try {
+              const packageDetails = await packageCollection.findOne({
+                _id: new ObjectId(item.packageId)
+              });
+
+              return {
+                ...item,
+                packageDetails: packageDetails || null
+              };
+            } catch (error) {
+              console.error(`Error fetching package details for ${item.packageId}:`, error);
+              return {
+                ...item,
+                packageDetails: null
+              };
+            }
+          })
+        );
+
+        res.json({
+          success: true,
+          data: wishlistWithDetails
+        });
+      } catch (error) {
+        console.error('Error fetching wishlist:', error);
+        res.status(500).json({
+          success: false,
+          error: error.message
+        });
+      }
+    });
+
+    // Get wishlist count for user
+    app.get('/wishlist/count', verifyFirebaseToken, async (req, res) => {
+      try {
+        const userEmail = req.decoded.email;
+
+        const count = await wishlistCollection.countDocuments({
+          userEmail: userEmail
+        });
+
+        res.json({
+          success: true,
+          count: count
+        });
+      } catch (error) {
+        console.error('Error fetching wishlist count:', error);
+        res.status(500).json({
+          success: false,
+          error: error.message
+        });
+      }
+    });
+
+    
 
     // hotel collection
     // Get hotels near a destination
@@ -97,24 +243,23 @@ async function run() {
       res.send(result);
     });
 
-// Get a single hotel by ID
-app.get('/hotels/:id', async (req, res) => {
-  try {
-    const id = req.params.id;
-    const query = { _id: new ObjectId(id) };
-    const hotel = await hotelCollection.findOne(query);
+    // Get a single hotel by ID
+    app.get('/hotels/:id', async (req, res) => {
+      try {
+        const id = req.params.id;
+        const query = { _id: new ObjectId(id) };
+        const hotel = await hotelCollection.findOne(query);
 
-    if (!hotel) {
-      return res.status(404).send({ message: "Hotel not found" });
-    }
+        if (!hotel) {
+          return res.status(404).send({ message: "Hotel not found" });
+        }
 
-    res.send(hotel);
-  } catch (error) {
-    console.error("Error fetching hotel by ID:", error);
-    res.status(500).send({ message: "Internal Server Error" });
-  }
-});
-
+        res.send(hotel);
+      } catch (error) {
+        console.error("Error fetching hotel by ID:", error);
+        res.status(500).send({ message: "Internal Server Error" });
+      }
+    });
 
     // tour-packages api
     app.get('/getSixPackages', async (req, res) => {
@@ -130,11 +275,7 @@ app.get('/hotels/:id', async (req, res) => {
       res.send(result)
     })
 
-
-
-
     app.get('/all-packages', async (req, res) => {
-
       const search = req.query.search;
 
       let query = {}
@@ -150,7 +291,6 @@ app.get('/hotels/:id', async (req, res) => {
       }
 
       const result = await packageCollection.find(query).toArray();
-
       res.send(result)
     })
 
@@ -171,14 +311,11 @@ app.get('/hotels/:id', async (req, res) => {
       res.send(packages)
     })
 
-
-
     app.get('/all-packages/:id', async (req, res) => {
       const id = req.params.id;
       const query = { _id: new ObjectId(id) }
       const result = await packageCollection.findOne(query)
       res.send(result)
-
     })
 
     app.post('/all-packages', async (req, res) => {
@@ -186,10 +323,11 @@ app.get('/hotels/:id', async (req, res) => {
       const result = await packageCollection.insertOne(newPackage)
       res.send(result)
     })
-    //  get a single tour package by id
+
+    // get a single tour package by id
     app.get('/package/:id', async (req, res) => {
       try {
-        const id = req.params.id; // fix here
+        const id = req.params.id;
         const filter = { _id: new ObjectId(id) };
         const package = await packageCollection.findOne(filter);
 
@@ -217,7 +355,7 @@ app.get('/hotels/:id', async (req, res) => {
 
     app.delete('/all-packages/:id', verifyFirebaseToken, async (req, res) => {
       const id = req.params.id;
-      console.log(id)
+      // console.log(id)
       const query = { _id: new ObjectId(id) }
       const result = await packageCollection.deleteOne(query)
       res.send(result)
@@ -248,29 +386,20 @@ app.get('/hotels/:id', async (req, res) => {
           booking.departure_location = package.departure_location;
           booking.destination = package.destination;
           booking.image = package.image;
-
         }
-
-
-
       }
       res.send(result)
     })
 
-
-
-
     app.get('/bookings/package/:package_id', async (req, res) => {
       const package_id = req.params.package_id;
-      console.log(package_id)
+      // console.log(package_id)
       const query = {
         packageId: package_id
       }
       const result = await bookingCollection.find(query).toArray()
       res.send(result)
-
     })
-
 
     app.patch('/bookings/:id', async (req, res) => {
       const id = req.params.id;
@@ -286,10 +415,9 @@ app.get('/hotels/:id', async (req, res) => {
 
     app.post('/bookings', async (req, res) => {
       const bookings = req.body;
-      console.log(bookings)
+      // console.log(bookings)
       const result = await bookingCollection.insertOne(bookings)
       const packageId = bookings.packageId;
-
 
       const updateResult = await packageCollection.updateOne({ _id: new ObjectId(packageId) }, {
         $inc: {
@@ -297,23 +425,19 @@ app.get('/hotels/:id', async (req, res) => {
         }
       })
 
-
       res.send(result)
     })
 
-
-
-
   } finally {
-
+    // Client connection handling remains the same
   }
 }
 run().catch(console.dir);
 
-
 app.get('/', (req, res) => {
   res.send("Tour-booking-server is cooking...")
 })
+
 app.listen(port, () => {
-  console.log(`Zahaba tour is running on port : ${port}`)
+  // console.log(`Zahaba tour is running on port : ${port}`)
 })
